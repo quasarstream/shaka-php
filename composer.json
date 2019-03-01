@@ -19,8 +19,8 @@
         "phpunit/phpunit": "^7.5"
     },
     "autoload": {
-        "psr-0": {
-            "Shaka": "src"
+        "psr-4": {
+        "Shaka\\": "src"
         }
     },
     "autoload-dev": {

@@ -16,34 +16,9 @@
  * limitations under the License.
  */
 
-namespace Shaka;
+namespace Shaka\Exception;
 
-use Shaka\Process\ShakaProcess;
-
-class Shaka
+class Exception extends \Exception implements ShakaExceptionInterface
 {
-
-    private $process;
-
-    /**
-     * Shaka constructor.
-     * @param $process
-     */
-    public function __construct($process)
-    {
-        $this->process = $process;
-    }
-
-    /**
-     * @param string $binary
-     * @return Shaka
-     * @throws Exception\ProcessException
-     */
-    public static function initialize(string $binary = null)
-    {
-        $process = new ShakaProcess($binary);
-
-        return new static($process);
-    }
 
 }

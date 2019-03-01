@@ -18,35 +18,16 @@
 
 namespace Shaka\Process;
 
-use Symfony\Component\Process\Process;
-
 class ShakaProcess extends Process
 {
-    private $command = [];
-
-    public function __construct($command, string $cwd = null, array $env = null, $input = null, ?float $timeout = 60)
-    {
-        $this->command[] = $command;
-        parent::__construct($this->command , $cwd, $env, $input, $timeout);
-    }
-
     /**
-     * @param array $command
-     * @return ShakaProcess
+     * ShakaProcess constructor.
+     * @param $binary
+     * @throws \Shaka\Exception\ProcessException
      */
-    public function addCommand($command): ShakaProcess
+    public function __construct($binary)
     {
-        $this->command[] = $command;
-        return $this;
+        $binary = ($binary) ? $binary : "packager";
+        parent::__construct($binary);
     }
-
-    /**
-     * @return array
-     */
-    public function getCommand(): array
-    {
-        return $this->command;
-    }
-
-
 }
