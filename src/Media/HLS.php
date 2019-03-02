@@ -17,9 +17,21 @@
  */
 
 
-namespace Shaka\Exception;
+namespace Shaka\Media;
 
 
-interface ShakaExceptionInterface
+use Shaka\Streams\StreamInterface;
+
+class HLS extends ExportMedia
 {
+
+    protected function BuildCommand(): void
+    {
+        // TODO: Implement BuildCommand() method.
+    }
+
+    public function addStream(StreamInterface $stream)
+    {
+        // TODO: Implement addStream() method.
+    }
 }

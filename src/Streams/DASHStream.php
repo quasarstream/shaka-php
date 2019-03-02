@@ -17,9 +17,35 @@
  */
 
 
-namespace Shaka\Exception;
+namespace Shaka\Streams;
 
 
-interface ShakaExceptionInterface
+class DASHStream extends DRMStream
 {
+    const DASH_ROLES = 'roles';
+
+    /** @var string */
+    private $dash_roles = '';
+
+    /**
+     * @param string $dash_roles
+     * @return DASHStream
+     */
+    public function setDashRoles(string $dash_roles): DASHStream
+    {
+        $this->dash_roles = $dash_roles;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    protected function getDashRoles()
+    {
+        if($this->dash_roles == ''){
+            return null;
+        }
+
+        return static::DASH_ROLES . '=' . $this->dash_roles;
+    }
 }

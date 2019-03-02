@@ -17,9 +17,10 @@
  */
 
 
-namespace Shaka\Exception;
+namespace Shaka\Media;
 
 
-interface ShakaExceptionInterface
+class DASH
 {
+
 }

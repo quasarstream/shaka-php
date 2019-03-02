@@ -17,9 +17,10 @@
  */
 
 
-namespace Shaka\Exception;
+namespace Shaka\DRM;
 
 
-interface ShakaExceptionInterface
+class Widevine
 {
+
 }

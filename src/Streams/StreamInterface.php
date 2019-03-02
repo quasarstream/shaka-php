@@ -17,9 +17,20 @@
  */
 
 
-namespace Shaka\Exception;
+namespace Shaka\Streams;
 
 
-interface ShakaExceptionInterface
+interface StreamInterface
 {
+    /**
+     * @param string $input
+     * @return $this
+     */
+    public function setInput(string $input);
+
+    /**
+     * @param string $output
+     * @return $this
+     */
+    public function setOutput(string $output);
 }

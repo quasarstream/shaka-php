@@ -16,7 +16,9 @@
  * limitations under the License.
  */
 
+
 namespace Shaka\Process;
+
 
 use Shaka\Exception\ProcessException;
 use Symfony\Component\Process\ExecutableFinder;
@@ -86,7 +88,7 @@ class Process
     }
 
     /**
-     * @param array $command
+     * @param array | string $command
      * @return Process
      */
     public function addCommand($command): Process

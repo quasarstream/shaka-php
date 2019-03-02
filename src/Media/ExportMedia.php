@@ -17,9 +17,26 @@
  */
 
 
-namespace Shaka\Exception;
+namespace Shaka\Media;
 
 
-interface ShakaExceptionInterface
+use Shaka\Process\Process;
+
+abstract class ExportMedia implements MediaInterface
 {
+    /** @var Process*/
+    protected $process;
+
+    /**
+     * @return string
+     * @throws \Shaka\Exception\ProcessException
+     */
+    protected function runCommand(): string
+    {
+        $this->BuildCommand();
+
+        return $this->process->run();
+    }
+
+    abstract protected function BuildCommand(): void;
 }

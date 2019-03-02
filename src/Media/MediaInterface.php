@@ -17,9 +17,12 @@
  */
 
 
-namespace Shaka\Exception;
+namespace Shaka\Media;
 
 
-interface ShakaExceptionInterface
+use Shaka\Streams\StreamInterface;
+
+interface MediaInterface
 {
+    public function addStream(StreamInterface $stream);
 }

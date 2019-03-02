@@ -17,9 +17,10 @@
  */
 
 
-namespace Shaka\Exception;
+namespace Shaka\Media\AnalysisStream;
 
 
-interface ShakaExceptionInterface
+class StreamCollections
 {
+
 }

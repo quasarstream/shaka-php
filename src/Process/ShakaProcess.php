@@ -16,7 +16,9 @@
  * limitations under the License.
  */
 
+
 namespace Shaka\Process;
+
 
 class ShakaProcess extends Process
 {

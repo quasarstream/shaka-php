@@ -16,7 +16,9 @@
  * limitations under the License.
  */
 
+
 namespace Shaka\Exception;
+
 
 class Exception extends \Exception implements ShakaExceptionInterface
 {

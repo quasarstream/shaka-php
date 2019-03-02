@@ -16,8 +16,11 @@
  * limitations under the License.
  */
 
+
 namespace Shaka;
 
+
+use Shaka\Media\Analysis;
 use Shaka\Process\ShakaProcess;
 
 class Shaka
@@ -32,6 +35,11 @@ class Shaka
     public function __construct($process)
     {
         $this->process = $process;
+    }
+
+    public function MediaFileAnalysis()
+    {
+        return new Analysis($this->process);
     }
 
     /**
