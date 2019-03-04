@@ -23,7 +23,7 @@ namespace Shaka\Media;
 use Shaka\Process\Process;
 use Shaka\Streams\StreamInterface;
 
-class DASH extends ExportMedia
+class ExtractStreams extends ExportMedia
 {
     /** @var array */
     private $streams = [];
@@ -39,7 +39,7 @@ class DASH extends ExportMedia
 
     /**
      * @param StreamInterface $stream
-     * @return DASH
+     * @return $this
      */
     public function addStream(StreamInterface $stream)
     {
@@ -47,22 +47,23 @@ class DASH extends ExportMedia
         return $this;
     }
 
-
-    /**
-     * @return mixed
-     */
-    public function export()
-    {
-        $param = func_get_arg(0);
-        var_dump($param);
-        die;
-    }
-
     /**
      * void
      */
     protected function BuildCommand(): void
     {
-        // TODO: Implement BuildCommand() method.
+        foreach ($this->streams as $stream) {
+            $this->process->addCommand($stream->build());
+        }
+
+    }
+
+    /**
+     * @return string
+     * @throws \Shaka\Exception\ProcessException
+     */
+    public function export()
+    {
+        return $this->runCommand();
     }
 }

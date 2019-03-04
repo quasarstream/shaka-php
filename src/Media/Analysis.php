@@ -20,12 +20,14 @@
 namespace Shaka\Media;
 
 
+use Shaka\Media\AnalysisStream\Stream;
+use Shaka\Media\AnalysisStream\StreamCollection;
 use Shaka\Process\Process;
 use Shaka\Streams\StreamInterface;
 
 class Analysis extends ExportMedia
 {
-    /** @var array*/
+    /** @var array */
     private $streams = [];
 
     /**
@@ -48,45 +50,47 @@ class Analysis extends ExportMedia
     }
 
     /**
-     * @param bool $json
      * @return mixed
      * @throws \Shaka\Exception\ProcessException
      */
-    public function export(bool $json = false)
+    public function export(): StreamCollection
     {
-        $data = $this->parseData();
-        return ($json) ? json_encode($data) : $data;
+        return $this->parseData();
     }
 
     /**
-     * @return array
+     * @return StreamCollection
      * @throws \Shaka\Exception\ProcessException
      */
-    private function parseData(): array
+    private function parseData(): StreamCollection
     {
-        $output = $this->runCommand();
-        preg_match('/(?:Found) (?P<digit>\d+)/', $output, $stream);
-        $extract = ["count_stream" => $stream[1]];
-        $Streams = explode(PHP_EOL . PHP_EOL, $output);
-        foreach ($Streams as $key => $stream){
-            if(strstr($stream, "Stream")){
-                $attrs = [];
-                $attributes = explode(PHP_EOL, trim(preg_replace(['/(?:File) "(.*)":/', '/(?:Found) (?P<digit>\d+) (?:stream)\(s\)./', '/(?:Stream) (\[)(?P<digit>\d+)(\]) /'],'',$stream)));
-                foreach ($attributes as $attribute){
+        $Streams = explode(PHP_EOL . PHP_EOL, $this->runCommand());
+        $streams = new StreamCollection();
+
+        foreach ($Streams as $key => $stream) {
+            if (strstr($stream, "Stream")) {
+
+                $stream_object = new Stream();
+                $attributes = explode(PHP_EOL, trim(preg_replace(['/(?:File) "(.*)":/', '/(?:Found) (?P<digit>\d+) (?:stream)\(s\)./', '/(?:Stream) (\[)(?P<digit>\d+)(\]) /'], '', $stream)));
+
+                foreach ($attributes as $attribute) {
                     $attribute = explode(": ", trim($attribute));
-                    $attrs = array_merge($attrs, [$attribute[0] => $attribute[1]]);
+                    $stream_object = $stream_object->addAttr($attribute[0], $attribute[1]);
                 }
-                $extract = array_merge($extract, ["stream_" . $key => $attrs]);
+
+                $streams->addStream($stream_object);
             }
         }
-        return $extract;
+
+        return $streams;
     }
 
-
-
+    /**
+     * void
+     */
     protected function BuildCommand(): void
     {
-        foreach ($this->streams as $stream){
+        foreach ($this->streams as $stream) {
             $this->process->addCommand($stream->build());
         }
 

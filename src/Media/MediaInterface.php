@@ -24,5 +24,14 @@ use Shaka\Streams\StreamInterface;
 
 interface MediaInterface
 {
+    /**
+     * @param StreamInterface $stream
+     * @return array
+     */
     public function addStream(StreamInterface $stream);
+
+    /**
+     * @return mixed
+     */
+    public function export();
 }

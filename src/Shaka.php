@@ -21,6 +21,8 @@ namespace Shaka;
 
 
 use Shaka\Media\Analysis;
+use Shaka\Media\DASH;
+use Shaka\Media\ExtractStreams;
 use Shaka\Process\ShakaProcess;
 
 class Shaka
@@ -37,9 +39,27 @@ class Shaka
         $this->process = $process;
     }
 
+    /**
+     * @return Analysis
+     */
     public function MediaFileAnalysis()
     {
         return new Analysis($this->process);
+    }
+
+    /**
+     * @return ExtractStreams
+     */
+    public function extractStreams()
+    {
+        return new ExtractStreams($this->process);
+    }
+
+    /**
+     */
+    public function DASH()
+    {
+        return new DASH($this->process);
     }
 
     /**
@@ -50,7 +70,6 @@ class Shaka
     public static function initialize(string $binary = null)
     {
         $process = new ShakaProcess($binary);
-
         return new static($process);
     }
 

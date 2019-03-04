@@ -24,7 +24,7 @@ use Shaka\Process\Process;
 
 abstract class ExportMedia implements MediaInterface
 {
-    /** @var Process*/
+    /** @var Process */
     protected $process;
 
     /**
