@@ -27,29 +27,7 @@ use Shaka\Streams\StreamInterface;
 
 class Analysis extends ExportMedia
 {
-    /** @var array */
-    private $streams = [];
-
-    /**
-     * MediaFileAnalysis constructor.
-     * @param $process
-     */
-    public function __construct(Process $process)
-    {
-        $this->process = $process;
-    }
-
-    /**
-     * @param StreamInterface $stream
-     * @return Analysis
-     */
-    public function addStream(StreamInterface $stream)
-    {
-        $this->streams[] = $stream;
-        return $this;
-    }
-
-    /**
+       /**
      * @return mixed
      * @throws \Shaka\Exception\ProcessException
      */

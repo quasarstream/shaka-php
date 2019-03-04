@@ -22,61 +22,43 @@ namespace Shaka\Streams;
 
 class Stream extends BuildStream
 {
-    const INPUT = 'in';
-
-    const STREAM_SELECTOR = 'stream';
-
-    const OUTPUT = 'out';
-
-    const INIT_SEGMENT = 'init_segment';
-
-    const SEGMENT_TEMPLATE = 'segment_template';
-
-    const BANDWIDTH = 'bw';
-
-    const LANGUAGE = 'lang';
-
-    const OUTPUT_FORMAT = 'format';
-
-    const TRICK_PLAY_FACTOR = 'tpf';
+    /** @var string */
+    private $input;
 
     /** @var string */
-    private $input = '';
+    private $stream_selector;
 
     /** @var string */
-    private $stream_selector  = '';
+    private $output;
 
     /** @var string */
-    private $output = '';
+    private $init_segment;
 
     /** @var string */
-    private $init_segment = '';
+    private $segment_template;
 
     /** @var string */
-    private $segment_template = '';
+    private $bandwidth;
 
     /** @var string */
-    private $bandwidth = '';
+    private $language;
 
     /** @var string */
-    private $language = '';
+    private $output_format;
 
     /** @var string */
-    private $output_format = '';
-
-    /** @var string */
-    private $trick_play_factor = '';
+    private $trick_play_factor;
 
     /**
      * @return string
      */
     protected function getInput()
     {
-        if($this->input == ''){
+        if(!$this->input){
             return null;
         }
 
-        return static::INPUT . '=' . $this->input;
+        return StreamOptions::INPUT . '=' . $this->input;
     }
 
     /**
@@ -94,11 +76,11 @@ class Stream extends BuildStream
      */
     protected function getStreamSelector()
     {
-        if($this->stream_selector == ''){
+        if(!$this->stream_selector){
             return null;
         }
 
-        return static::STREAM_SELECTOR . '=' . $this->stream_selector;
+        return StreamOptions::STREAM_SELECTOR . '=' . $this->stream_selector;
     }
 
     /**
@@ -116,11 +98,11 @@ class Stream extends BuildStream
      */
     protected function getOutput()
     {
-        if($this->output == ''){
+        if(!$this->output){
             return null;
         }
 
-        return static::OUTPUT . '=' . $this->output;
+        return StreamOptions::OUTPUT . '=' . $this->output;
     }
 
     /**
@@ -138,11 +120,11 @@ class Stream extends BuildStream
      */
     protected function getInitSegment()
     {
-        if($this->init_segment == ''){
+        if(!$this->init_segment){
             return null;
         }
 
-        return static::INIT_SEGMENT . '=' . $this->init_segment;
+        return StreamOptions::INIT_SEGMENT . '=' . $this->init_segment;
     }
 
     /**
@@ -160,11 +142,11 @@ class Stream extends BuildStream
      */
     protected function getSegmentTemplate()
     {
-        if($this->segment_template == ''){
+        if(!$this->segment_template){
             return null;
         }
 
-        return static::SEGMENT_TEMPLATE . '=' . $this->segment_template;
+        return StreamOptions::SEGMENT_TEMPLATE . '=' . $this->segment_template;
     }
 
     /**
@@ -182,11 +164,11 @@ class Stream extends BuildStream
      */
     protected function getBandwidth()
     {
-        if($this->bandwidth == ''){
+        if(!$this->bandwidth){
             return null;
         }
 
-        return static::BANDWIDTH . '=' . $this->bandwidth;
+        return StreamOptions::BANDWIDTH . '=' . $this->bandwidth;
     }
 
     /**
@@ -204,11 +186,11 @@ class Stream extends BuildStream
      */
     protected function getLanguage()
     {
-        if($this->language == ''){
+        if(!$this->language){
             return null;
         }
 
-        return static::LANGUAGE . '=' . $this->language;
+        return StreamOptions::LANGUAGE . '=' . $this->language;
     }
 
     /**
@@ -226,11 +208,11 @@ class Stream extends BuildStream
      */
     protected function getOutputFormat()
     {
-        if($this->output_format == ''){
+        if(!$this->output_format){
             return null;
         }
 
-        return static::OUTPUT_FORMAT . '=' . $this->output_format;
+        return StreamOptions::OUTPUT_FORMAT . '=' . $this->output_format;
     }
 
     /**
@@ -248,11 +230,11 @@ class Stream extends BuildStream
      */
     protected function getTrickPlayFactor()
     {
-        if($this->trick_play_factor == ''){
+        if(!$this->trick_play_factor){
             return null;
         }
 
-        return static::TRICK_PLAY_FACTOR . '=' . $this->trick_play_factor;
+        return StreamOptions::TRICK_PLAY_FACTOR . '=' . $this->trick_play_factor;
     }
 
     /**

@@ -20,18 +20,11 @@
 namespace Shaka\Media;
 
 
-use Shaka\Streams\StreamInterface;
-
 interface MediaInterface
 {
     /**
-     * @param StreamInterface $stream
-     * @return array
-     */
-    public function addStream(StreamInterface $stream);
-
-    /**
      * @return mixed
+     * @throws \Shaka\Exception\ProcessException
      */
     public function export();
 }

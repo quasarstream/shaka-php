@@ -22,5 +22,7 @@ namespace Shaka\Media\Traits;
 
 trait Live
 {
-
+//    const ALLOW_APPROXIMATE_SEGMENT_TIMELINE = 'allow_approximate_segment_timeline';
+    /** @var bool */
+    private $allow_approximate_segment_timeline;
 }

@@ -20,33 +20,8 @@
 namespace Shaka\Media;
 
 
-use Shaka\Process\Process;
-use Shaka\Streams\StreamInterface;
-
 class ExtractStreams extends ExportMedia
 {
-    /** @var array */
-    private $streams = [];
-
-    /**
-     * MediaFileAnalysis constructor.
-     * @param $process
-     */
-    public function __construct(Process $process)
-    {
-        $this->process = $process;
-    }
-
-    /**
-     * @param StreamInterface $stream
-     * @return $this
-     */
-    public function addStream(StreamInterface $stream)
-    {
-        $this->streams[] = $stream;
-        return $this;
-    }
-
     /**
      * void
      */
@@ -55,7 +30,6 @@ class ExtractStreams extends ExportMedia
         foreach ($this->streams as $stream) {
             $this->process->addCommand($stream->build());
         }
-
     }
 
     /**

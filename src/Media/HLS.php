@@ -22,16 +22,7 @@ namespace Shaka\Media;
 
 use Shaka\Streams\StreamInterface;
 
-class HLS extends ExportMedia
+class HLS
 {
 
-    protected function BuildCommand(): void
-    {
-        // TODO: Implement BuildCommand() method.
-    }
-
-    public function addStream(StreamInterface $stream)
-    {
-        // TODO: Implement addStream() method.
-    }
 }

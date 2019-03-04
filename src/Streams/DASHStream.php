@@ -22,10 +22,8 @@ namespace Shaka\Streams;
 
 class DASHStream extends DRMStream
 {
-    const DASH_ROLES = 'roles';
-
     /** @var string */
-    private $dash_roles = '';
+    private $dash_roles;
 
     /**
      * @param string $dash_roles
@@ -42,10 +40,10 @@ class DASHStream extends DRMStream
      */
     protected function getDashRoles()
     {
-        if($this->dash_roles == ''){
+        if(!$this->dash_roles){
             return null;
         }
 
-        return static::DASH_ROLES . '=' . $this->dash_roles;
+        return StreamOptions::DASH_ROLES . '=' . $this->dash_roles;
     }
 }

@@ -22,41 +22,31 @@ namespace Shaka\Streams;
 
 class HLSStream extends DRMStream
 {
-    const HLS_NAME = 'hls_name';
-
-    const HLS_GROUP_ID = 'hls_group_id';
-
-    const PLAYLIST_NAME = 'playlist_name';
-
-    const IFRAME_PLAYLIST_NAME = 'iframe_playlist_name';
-
-    const HLS_CHARACTERISTICS = 'charcs';
+    /** @var string */
+    private $hls_name;
 
     /** @var string */
-    private $hls_name = '';
+    private $hls_group_id;
 
     /** @var string */
-    private $hls_group_id = '';
+    private $playlist_name;
 
     /** @var string */
-    private $playlist_name = '';
+    private $iframe_playlist_name;
 
     /** @var string */
-    private $iframe_playlist_name = '';
-
-    /** @var string */
-    private $hls_characteristics = '';
+    private $hls_characteristics;
 
     /**
      * @return string
      */
     protected function getHlsName()
     {
-        if($this->hls_name == ''){
+        if(!$this->hls_name){
             return null;
         }
 
-        return static::HLS_NAME . '=' . $this->hls_name;
+        return StreamOptions::HLS_NAME . '=' . $this->hls_name;
     }
 
     /**
@@ -74,11 +64,11 @@ class HLSStream extends DRMStream
      */
     protected function getHlsGroupId()
     {
-        if($this->hls_group_id == ''){
+        if(!$this->hls_group_id){
             return null;
         }
 
-        return static::HLS_GROUP_ID . '=' . $this->hls_group_id;
+        return StreamOptions::HLS_GROUP_ID . '=' . $this->hls_group_id;
     }
 
     /**
@@ -96,11 +86,11 @@ class HLSStream extends DRMStream
      */
     protected function getPlaylistName()
     {
-        if($this->playlist_name == ''){
+        if(!$this->playlist_name){
             return null;
         }
 
-        return static::PLAYLIST_NAME . '=' . $this->playlist_name;
+        return StreamOptions::PLAYLIST_NAME . '=' . $this->playlist_name;
     }
 
     /**
@@ -118,11 +108,11 @@ class HLSStream extends DRMStream
      */
     protected function getIframePlaylistName()
     {
-        if($this->iframe_playlist_name == ''){
+        if(!$this->iframe_playlist_name){
             return null;
         }
 
-        return static::IFRAME_PLAYLIST_NAME . '=' . $this->iframe_playlist_name;
+        return StreamOptions::IFRAME_PLAYLIST_NAME . '=' . $this->iframe_playlist_name;
     }
 
     /**
@@ -140,11 +130,11 @@ class HLSStream extends DRMStream
      */
     protected function getHlsCharacteristics()
     {
-        if($this->hls_characteristics == ''){
+        if(!$this->hls_characteristics){
             return null;
         }
 
-        return static::HLS_CHARACTERISTICS . '=' . $this->hls_characteristics;
+        return StreamOptions::HLS_CHARACTERISTICS . '=' . $this->hls_characteristics;
     }
 
     /**

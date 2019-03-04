@@ -22,26 +22,22 @@ namespace Shaka\Streams;
 
 class DRMStream extends Stream
 {
-    const SKIP_ENCRYPTION = 'skip_encryption';
-
-    const DRM_LABEL = 'drm_label';
+    /** @var string */
+    private $skip_encryption;
 
     /** @var string */
-    private $skip_encryption = '';
-
-    /** @var string */
-    private $drm_label = '';
+    private $drm_label;
 
     /**
      * @return string
      */
     protected function getSkipEncryption()
     {
-        if($this->skip_encryption == ''){
+        if(!$this->skip_encryption){
             return null;
         }
 
-        return static::SKIP_ENCRYPTION . '=' . $this->skip_encryption;
+        return StreamOptions::SKIP_ENCRYPTION . '=' . $this->skip_encryption;
     }
 
     /**
@@ -59,11 +55,11 @@ class DRMStream extends Stream
      */
     protected function getDrmLabel()
     {
-        if($this->drm_label == ''){
+        if(!$this->drm_label){
             return null;
         }
 
-        return static::DRM_LABEL . '=' . $this->drm_label;
+        return StreamOptions::DRM_LABEL . '=' . $this->drm_label;
     }
 
     /**

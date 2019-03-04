@@ -21,12 +21,34 @@ namespace Shaka\Media;
 
 
 use Shaka\Process\Process;
+use Shaka\Streams\StreamInterface;
 
-abstract class ExportMedia implements MediaInterface
+class ExportMedia
 {
     /** @var Process */
     protected $process;
 
+    /** @var array */
+    protected $streams = [];
+
+    /**
+     * MediaFileAnalysis constructor.
+     * @param $process
+     */
+    public function __construct(Process $process)
+    {
+        $this->process = $process;
+    }
+
+    /**
+     * @param StreamInterface $stream
+     * @return $this
+     */
+    public function addStream(StreamInterface $stream)
+    {
+        $this->streams[] = $stream;
+        return $this;
+    }
     /**
      * @return string
      * @throws \Shaka\Exception\ProcessException
@@ -38,5 +60,18 @@ abstract class ExportMedia implements MediaInterface
         return $this->process->run();
     }
 
-    abstract protected function BuildCommand(): void;
+    protected function options()
+    {
+        $options = [];
+        $get_methods = preg_grep('/^get/', get_class_methods($this));
+
+        foreach ($get_methods as $method) {
+            if (null !== ($option = $this->{$method}())) {
+                $options[] = $option;
+            }
+        }
+
+        return $options;
+    }
+
 }
