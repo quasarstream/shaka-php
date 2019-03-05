@@ -42,7 +42,7 @@ class HLSStream extends DRMStream
      */
     protected function getHlsName()
     {
-        if(!$this->hls_name){
+        if (!$this->hls_name) {
             return null;
         }
 
@@ -64,7 +64,7 @@ class HLSStream extends DRMStream
      */
     protected function getHlsGroupId()
     {
-        if(!$this->hls_group_id){
+        if (!$this->hls_group_id) {
             return null;
         }
 
@@ -86,7 +86,7 @@ class HLSStream extends DRMStream
      */
     protected function getPlaylistName()
     {
-        if(!$this->playlist_name){
+        if (!$this->playlist_name) {
             return null;
         }
 
@@ -108,7 +108,7 @@ class HLSStream extends DRMStream
      */
     protected function getIframePlaylistName()
     {
-        if(!$this->iframe_playlist_name){
+        if (!$this->iframe_playlist_name) {
             return null;
         }
 
@@ -130,7 +130,7 @@ class HLSStream extends DRMStream
      */
     protected function getHlsCharacteristics()
     {
-        if(!$this->hls_characteristics){
+        if (!$this->hls_characteristics) {
             return null;
         }
 
@@ -146,5 +146,4 @@ class HLSStream extends DRMStream
         $this->hls_characteristics = $hls_characteristics;
         return $this;
     }
-
 }

@@ -40,7 +40,7 @@ class DASHStream extends DRMStream
      */
     protected function getDashRoles()
     {
-        if(!$this->dash_roles){
+        if (!$this->dash_roles) {
             return null;
         }
 

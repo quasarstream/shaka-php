@@ -20,8 +20,11 @@
 namespace Shaka\Options;
 
 
-class ExportOptions
+class ExportOptions implements OptionInterface
 {
+    /**
+     * @return array
+     */
     public function export()
     {
         $options = [];

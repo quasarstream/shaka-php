@@ -43,17 +43,14 @@ class StreamOptions
     const TRICK_PLAY_FACTOR = 'tpf';
 
 
-
     //DRM Stream
     const SKIP_ENCRYPTION = 'skip_encryption';
 
     const DRM_LABEL = 'drm_label';
 
 
-
     //DASH Stream
     const DASH_ROLES = 'roles';
-
 
 
     //HLS Stream

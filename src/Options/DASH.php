@@ -20,7 +20,7 @@
 namespace Shaka\Options;
 
 
-class DASH extends ExportOptions
+class DASH extends General
 {
     /** @var bool */
     private $generate_static_mpd;
@@ -41,26 +41,14 @@ class DASH extends ExportOptions
     private $suggested_presentation_delay;
 
     /** @var string */
-    private $time_shift_buffer_depth;
-
-    /** @var string */
-    private $preserved_segments_outside_live_window;
-
-    /** @var string */
     private $utc_timings;
-
-    /** @var string */
-    private $default_language;
-
-    /** @var string */
-    private $default_text_language;
 
     /**
      * @return array
      */
     public function getGenerateStaticMpd()
     {
-        if(!$this->generate_static_mpd){
+        if (!$this->generate_static_mpd) {
             return null;
         }
 
@@ -82,7 +70,7 @@ class DASH extends ExportOptions
      */
     protected function getBaseUrls()
     {
-        if(!$this->base_urls){
+        if (!$this->base_urls) {
             return null;
         }
 
@@ -104,7 +92,7 @@ class DASH extends ExportOptions
      */
     protected function getMinBufferTime()
     {
-        if(!$this->min_buffer_time){
+        if (!$this->min_buffer_time) {
             return null;
         }
 
@@ -126,7 +114,7 @@ class DASH extends ExportOptions
      */
     protected function getMinimumUpdatePeriod()
     {
-        if(!$this->minimum_update_period){
+        if (!$this->minimum_update_period) {
             return null;
         }
 
@@ -148,7 +136,7 @@ class DASH extends ExportOptions
      */
     protected function getSuggestedPresentationDelay()
     {
-        if(!$this->suggested_presentation_delay){
+        if (!$this->suggested_presentation_delay) {
             return null;
         }
 
@@ -168,53 +156,9 @@ class DASH extends ExportOptions
     /**
      * @return array
      */
-    protected function getTimeShiftBufferDepth()
-    {
-        if(!$this->time_shift_buffer_depth){
-            return null;
-        }
-
-        return [MediaOptions::TIME_SHIFT_BUFFER_DEPTH, $this->time_shift_buffer_depth];
-    }
-
-    /**
-     * @param string $time_shift_buffer_depth
-     * @return DASH
-     */
-    public function setTimeShiftBufferDepth(string $time_shift_buffer_depth): DASH
-    {
-        $this->time_shift_buffer_depth = $time_shift_buffer_depth;
-        return $this;
-    }
-
-    /**
-     * @return array
-     */
-    protected function getPreservedSegmentsOutsideLiveWindow()
-    {
-        if(!$this->preserved_segments_outside_live_window){
-            return null;
-        }
-
-        return [MediaOptions::PRESERVED_SEGMENTS_OUTSIDE_LIVE_WINDOW, $this->preserved_segments_outside_live_window];
-    }
-
-    /**
-     * @param string $preserved_segments_outside_live_window
-     * @return DASH
-     */
-    public function setPreservedSegmentsOutsideLiveWindow(string $preserved_segments_outside_live_window): DASH
-    {
-        $this->preserved_segments_outside_live_window = $preserved_segments_outside_live_window;
-        return $this;
-    }
-
-    /**
-     * @return array
-     */
     protected function getUtcTimings()
     {
-        if(!$this->utc_timings){
+        if (!$this->utc_timings) {
             return null;
         }
 
@@ -228,50 +172,6 @@ class DASH extends ExportOptions
     public function setUtcTimings(string $utc_timings): DASH
     {
         $this->utc_timings = $utc_timings;
-        return $this;
-    }
-
-    /**
-     * @return array
-     */
-    protected function getDefaultLanguage()
-    {
-        if(!$this->default_language){
-            return null;
-        }
-
-        return [MediaOptions::DEFAULT_LANGUAGE, $this->default_language];
-    }
-
-    /**
-     * @param string $default_language
-     * @return DASH
-     */
-    public function setDefaultLanguage(string $default_language): DASH
-    {
-        $this->default_language = $default_language;
-        return $this;
-    }
-
-    /**
-     * @return array
-     */
-    protected function getDefaultTextLanguage()
-    {
-        if(!$this->default_text_language){
-            return null;
-        }
-
-        return [MediaOptions::DEFAULT_TEXT_LANGUAGE, $this->default_text_language];
-    }
-
-    /**
-     * @param string $default_text_language
-     * @return DASH
-     */
-    public function setDefaultTextLanguage(string $default_text_language): DASH
-    {
-        $this->default_text_language = $default_text_language;
         return $this;
     }
 
@@ -290,7 +190,7 @@ class DASH extends ExportOptions
      */
     protected function getMpdOutput()
     {
-        if(!$this->mpd_output){
+        if (!$this->mpd_output) {
             return null;
         }
 

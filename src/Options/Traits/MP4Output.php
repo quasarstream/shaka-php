@@ -20,7 +20,7 @@
 namespace Shaka\Options\Traits;
 
 
-class MP4Output
+trait MP4Output
 {
 
 }

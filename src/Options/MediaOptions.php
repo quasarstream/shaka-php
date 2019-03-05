@@ -22,6 +22,15 @@ namespace Shaka\Options;
 
 class MediaOptions
 {
+    //General Options
+    const TIME_SHIFT_BUFFER_DEPTH = '--time_shift_buffer_depth';
+
+    const PRESERVED_SEGMENTS_OUTSIDE_LIVE_WINDOW = '--preserved_segments_outside_live_window';
+
+    const DEFAULT_LANGUAGE = '--default_language';
+
+    const DEFAULT_TEXT_LANGUAGE = '--default_text_language';
+
 
     //DASH Options
     const GENERATE_STATIC_MPD = '--generate_static_mpd';
@@ -36,16 +45,20 @@ class MediaOptions
 
     const SUGGESTED_PRESENTATION_DELAY = '--suggested_presentation_delay';
 
-    const TIME_SHIFT_BUFFER_DEPTH = '--time_shift_buffer_depth';
-
-    const PRESERVED_SEGMENTS_OUTSIDE_LIVE_WINDOW = '--preserved_segments_outside_live_window';
-
     const UTC_TIMINGS = '--utc_timings';
 
-    const DEFAULT_LANGUAGE = '--default_language';
 
-    const DEFAULT_TEXT_LANGUAGE = '--default_text_language';
+    //HLS Options
+    const HLS_MASTER_PLAYLIST_OUTPUT = '--generate_static_mpd';
+
+    const HLS_BASE_URL = '--mpd_output';
+
+    const HLS_KEY_URI = '--base_urls';
+
+    const HLS_PLAYLIST_TYPE = '--min_buffer_time';
 
 
+    //Live Options
+    const ALLOW_APPROXIMATE_SEGMENT_TIMELINE = 'allow_approximate_segment_timeline';
 
 }

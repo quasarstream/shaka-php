@@ -32,15 +32,17 @@ abstract class BuildStream implements StreamInterface
         $get_methods = preg_grep('/^get/', get_class_methods($this));
 
         foreach ($get_methods as $method) {
+
             if (null !== ($descriptor = $this->{$method}())) {
                 if ($method == 'getInput') {
                     $stream = $descriptor . $stream;
                     continue;
                 }
+
                 $stream .= ',' . $descriptor;
             }
         }
 
-        return str_replace(" ","" , $stream);
+        return str_replace(" ", "", $stream);
     }
 }

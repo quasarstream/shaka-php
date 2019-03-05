@@ -110,7 +110,6 @@ class ExportMedia
         if(null !== $this->dash) {
             $this->process->addCommand($this->dash->export());
         }
-
     }
 
     /**

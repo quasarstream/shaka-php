@@ -54,7 +54,7 @@ class Stream extends BuildStream
      */
     protected function getInput()
     {
-        if(!$this->input){
+        if (!$this->input) {
             return null;
         }
 
@@ -76,7 +76,7 @@ class Stream extends BuildStream
      */
     protected function getStreamSelector()
     {
-        if(!$this->stream_selector){
+        if (!$this->stream_selector) {
             return null;
         }
 
@@ -98,7 +98,7 @@ class Stream extends BuildStream
      */
     protected function getOutput()
     {
-        if(!$this->output){
+        if (!$this->output) {
             return null;
         }
 
@@ -120,7 +120,7 @@ class Stream extends BuildStream
      */
     protected function getInitSegment()
     {
-        if(!$this->init_segment){
+        if (!$this->init_segment) {
             return null;
         }
 
@@ -142,7 +142,7 @@ class Stream extends BuildStream
      */
     protected function getSegmentTemplate()
     {
-        if(!$this->segment_template){
+        if (!$this->segment_template) {
             return null;
         }
 
@@ -164,7 +164,7 @@ class Stream extends BuildStream
      */
     protected function getBandwidth()
     {
-        if(!$this->bandwidth){
+        if (!$this->bandwidth) {
             return null;
         }
 
@@ -186,7 +186,7 @@ class Stream extends BuildStream
      */
     protected function getLanguage()
     {
-        if(!$this->language){
+        if (!$this->language) {
             return null;
         }
 
@@ -208,7 +208,7 @@ class Stream extends BuildStream
      */
     protected function getOutputFormat()
     {
-        if(!$this->output_format){
+        if (!$this->output_format) {
             return null;
         }
 
@@ -230,7 +230,7 @@ class Stream extends BuildStream
      */
     protected function getTrickPlayFactor()
     {
-        if(!$this->trick_play_factor){
+        if (!$this->trick_play_factor) {
             return null;
         }
 

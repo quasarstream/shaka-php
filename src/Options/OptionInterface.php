@@ -17,10 +17,14 @@
  */
 
 
-namespace Shaka\Options\Traits;
+namespace Shaka\Options;
 
 
-trait Chunking
+interface OptionInterface
 {
 
+    /**
+     * @return array
+     */
+    public function export();
 }
