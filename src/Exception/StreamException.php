@@ -17,10 +17,10 @@
  */
 
 
-namespace Shaka\DRM;
+namespace Shaka\Exception;
 
 
-class Widevine
+class StreamException extends Exception
 {
 
 }

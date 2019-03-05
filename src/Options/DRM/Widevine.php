@@ -17,27 +17,10 @@
  */
 
 
-namespace Shaka\Media;
+namespace Shaka\Options\DRM;
 
 
-class ExtractStreams extends ExportMedia
+class Widevine extends Encryption
 {
-    /**
-     * void
-     */
-    protected function BuildCommand(): void
-    {
-        foreach ($this->streams as $stream) {
-            $this->process->addCommand($stream->build());
-        }
-    }
 
-    /**
-     * @return string
-     * @throws \Shaka\Exception\ProcessException
-     */
-    public function export()
-    {
-        return $this->runCommand();
-    }
 }

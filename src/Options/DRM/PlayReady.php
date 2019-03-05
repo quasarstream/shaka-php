@@ -17,10 +17,10 @@
  */
 
 
-namespace Shaka\Media\Traits;
+namespace Shaka\Options\DRM;
 
 
-trait MP4Output
+class PlayReady extends Encryption
 {
 
 }

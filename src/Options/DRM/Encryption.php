@@ -17,30 +17,12 @@
  */
 
 
-namespace Shaka\Streams;
+namespace Shaka\Options\DRM;
 
 
-abstract class BuildStream implements StreamInterface
+use Shaka\Options\ExportOptions;
+
+class Encryption extends ExportOptions
 {
 
-    /**
-     * @return string
-     */
-    public function build()
-    {
-        $stream = '';
-        $get_methods = preg_grep('/^get/', get_class_methods($this));
-
-        foreach ($get_methods as $method) {
-            if (null !== ($descriptor = $this->{$method}())) {
-                if ($method == 'getInput') {
-                    $stream = $descriptor . $stream;
-                    continue;
-                }
-                $stream .= ',' . $descriptor;
-            }
-        }
-
-        return $stream;
-    }
 }

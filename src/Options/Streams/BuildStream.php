@@ -17,33 +17,30 @@
  */
 
 
-namespace Shaka\Streams;
+namespace Shaka\Options\Streams;
 
 
-class DASHStream extends DRMStream
+abstract class BuildStream implements StreamInterface
 {
-    /** @var string */
-    private $dash_roles;
-
-    /**
-     * @param string $dash_roles
-     * @return DASHStream
-     */
-    public function setDashRoles(string $dash_roles): DASHStream
-    {
-        $this->dash_roles = $dash_roles;
-        return $this;
-    }
 
     /**
      * @return string
      */
-    protected function getDashRoles()
+    public function build()
     {
-        if(!$this->dash_roles){
-            return null;
+        $stream = '';
+        $get_methods = preg_grep('/^get/', get_class_methods($this));
+
+        foreach ($get_methods as $method) {
+            if (null !== ($descriptor = $this->{$method}())) {
+                if ($method == 'getInput') {
+                    $stream = $descriptor . $stream;
+                    continue;
+                }
+                $stream .= ',' . $descriptor;
+            }
         }
 
-        return StreamOptions::DASH_ROLES . '=' . $this->dash_roles;
+        return str_replace(" ","" , $stream);
     }
 }

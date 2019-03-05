@@ -17,20 +17,42 @@
  */
 
 
-namespace Shaka\Streams;
+namespace Shaka\Media;
 
 
-interface StreamInterface
+use Shaka\Options\DASH;
+use Shaka\Options\DRM\Encryption;
+use Shaka\Options\HLS;
+
+class Media extends ExportMedia implements MediaInterface
 {
     /**
-     * @param string $input
-     * @return $this
+     * @param Encryption $drm
+     * @return Media
      */
-    public function setInput(string $input);
+    public function DRM(Encryption $drm)
+    {
+        $this->drm = $drm;
+        return $this;
+    }
 
     /**
-     * @param string $output
+     * @param HLS $hls
      * @return $this
      */
-    public function setOutput(string $output);
+    public function HLS(HLS $hls)
+    {
+        $this->hls = $hls;
+        return $this;
+    }
+
+    /**
+     * @param DASH $dash
+     * @return $this
+     */
+    public function DASH(DASH $dash)
+    {
+        $this->dash = $dash;
+        return $this;
+    }
 }

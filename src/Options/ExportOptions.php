@@ -17,12 +17,22 @@
  */
 
 
-namespace Shaka\Media;
+namespace Shaka\Options;
 
 
-use Shaka\Streams\StreamInterface;
-
-class HLS
+class ExportOptions
 {
+    public function export()
+    {
+        $options = [];
+        $get_methods = preg_grep('/^get/', get_class_methods($this));
 
+        foreach ($get_methods as $method) {
+            if (null !== ($option = $this->{$method}())) {
+                $options = array_merge($options, $option);
+            }
+        }
+
+        return $options;
+    }
 }

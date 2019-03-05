@@ -17,10 +17,10 @@
  */
 
 
-namespace Shaka\DRM;
+namespace Shaka\Options\DRM;
 
 
-class Raw
+class Raw extends Encryption
 {
 
 }

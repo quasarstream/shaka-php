@@ -17,7 +17,7 @@
  */
 
 
-namespace Shaka\Media;
+namespace Shaka\Options;
 
 
 class MediaOptions

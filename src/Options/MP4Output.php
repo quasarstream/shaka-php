@@ -17,10 +17,10 @@
  */
 
 
-namespace Shaka\DRM;
+namespace Shaka\Options\Traits;
 
 
-class ExportEncryption
+class MP4Output
 {
 
 }

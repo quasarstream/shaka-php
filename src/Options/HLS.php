@@ -17,10 +17,10 @@
  */
 
 
-namespace Shaka\DRM;
+namespace Shaka\Options;
 
 
-class PlayReady
+class HLS extends ExportOptions
 {
 
 }

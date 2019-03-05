@@ -17,10 +17,10 @@
  */
 
 
-namespace Shaka\Media;
+namespace Shaka\Options;
 
 
-class DASH
+class DASH extends ExportOptions
 {
     /** @var bool */
     private $generate_static_mpd;
@@ -56,15 +56,15 @@ class DASH
     private $default_text_language;
 
     /**
-     * @return bool
+     * @return array
      */
-    public function isGenerateStaticMpd(): bool
+    public function getGenerateStaticMpd()
     {
         if(!$this->generate_static_mpd){
             return null;
         }
 
-        return MediaOptions::GENERATE_STATIC_MPD;
+        return [MediaOptions::GENERATE_STATIC_MPD];
     }
 
     /**
@@ -78,15 +78,15 @@ class DASH
     }
 
     /**
-     * @return string
+     * @return array
      */
-    protected function getBaseUrls(): string
+    protected function getBaseUrls()
     {
         if(!$this->base_urls){
             return null;
         }
 
-        return MediaOptions::BASE_URLS . "=" . $this->base_urls;
+        return [MediaOptions::BASE_URLS, $this->base_urls];
     }
 
     /**
@@ -100,15 +100,15 @@ class DASH
     }
 
     /**
-     * @return string
+     * @return array
      */
-    protected function getMinBufferTime(): string
+    protected function getMinBufferTime()
     {
         if(!$this->min_buffer_time){
             return null;
         }
 
-        return MediaOptions::MIN_BUFFER_TIME . "=" . $this->min_buffer_time;
+        return [MediaOptions::MIN_BUFFER_TIME, $this->min_buffer_time];
     }
 
     /**
@@ -122,15 +122,15 @@ class DASH
     }
 
     /**
-     * @return string
+     * @return array
      */
-    protected function getMinimumUpdatePeriod(): string
+    protected function getMinimumUpdatePeriod()
     {
         if(!$this->minimum_update_period){
             return null;
         }
 
-        return MediaOptions::MINIMUM_UPDATE_PERIOD . "=" . $this->minimum_update_period;
+        return [MediaOptions::MINIMUM_UPDATE_PERIOD, $this->minimum_update_period];
     }
 
     /**
@@ -144,15 +144,15 @@ class DASH
     }
 
     /**
-     * @return string
+     * @return array
      */
-    protected function getSuggestedPresentationDelay(): string
+    protected function getSuggestedPresentationDelay()
     {
         if(!$this->suggested_presentation_delay){
             return null;
         }
 
-        return MediaOptions::SUGGESTED_PRESENTATION_DELAY . "=" . $this->suggested_presentation_delay;
+        return [MediaOptions::SUGGESTED_PRESENTATION_DELAY, $this->suggested_presentation_delay];
     }
 
     /**
@@ -166,15 +166,15 @@ class DASH
     }
 
     /**
-     * @return string
+     * @return array
      */
-    protected function getTimeShiftBufferDepth(): string
+    protected function getTimeShiftBufferDepth()
     {
         if(!$this->time_shift_buffer_depth){
             return null;
         }
 
-        return MediaOptions::TIME_SHIFT_BUFFER_DEPTH . "=" . $this->time_shift_buffer_depth;
+        return [MediaOptions::TIME_SHIFT_BUFFER_DEPTH, $this->time_shift_buffer_depth];
     }
 
     /**
@@ -188,15 +188,15 @@ class DASH
     }
 
     /**
-     * @return string
+     * @return array
      */
-    protected function getPreservedSegmentsOutsideLiveWindow(): string
+    protected function getPreservedSegmentsOutsideLiveWindow()
     {
         if(!$this->preserved_segments_outside_live_window){
             return null;
         }
 
-        return MediaOptions::PRESERVED_SEGMENTS_OUTSIDE_LIVE_WINDOW . "=" . $this->preserved_segments_outside_live_window;
+        return [MediaOptions::PRESERVED_SEGMENTS_OUTSIDE_LIVE_WINDOW, $this->preserved_segments_outside_live_window];
     }
 
     /**
@@ -210,15 +210,15 @@ class DASH
     }
 
     /**
-     * @return string
+     * @return array
      */
-    protected function getUtcTimings(): string
+    protected function getUtcTimings()
     {
         if(!$this->utc_timings){
             return null;
         }
 
-        return MediaOptions::UTC_TIMINGS . "=" . $this->utc_timings;
+        return [MediaOptions::UTC_TIMINGS, $this->utc_timings];
     }
 
     /**
@@ -232,15 +232,15 @@ class DASH
     }
 
     /**
-     * @return string
+     * @return array
      */
-    protected function getDefaultLanguage(): string
+    protected function getDefaultLanguage()
     {
         if(!$this->default_language){
             return null;
         }
 
-        return MediaOptions::DEFAULT_LANGUAGE . "=" . $this->default_language;
+        return [MediaOptions::DEFAULT_LANGUAGE, $this->default_language];
     }
 
     /**
@@ -254,15 +254,15 @@ class DASH
     }
 
     /**
-     * @return string
+     * @return array
      */
-    protected function getDefaultTextLanguage(): string
+    protected function getDefaultTextLanguage()
     {
         if(!$this->default_text_language){
             return null;
         }
 
-        return MediaOptions::DEFAULT_TEXT_LANGUAGE . "=" . $this->default_text_language;
+        return [MediaOptions::DEFAULT_TEXT_LANGUAGE, $this->default_text_language];
     }
 
     /**
@@ -276,29 +276,24 @@ class DASH
     }
 
     /**
-     * @return mixed
-     * @throws \Shaka\Exception\ProcessException
+     * @param string $mpd_output
+     * @return DASH
      */
-    public function export()
+    public function setMpdOutput(string $mpd_output): DASH
     {
-        if(!$this->mpd_output = func_get_arg(0)) {
-            $this->mpd_output = __DIR__ . "/dash/output.mpd";
-        }
-
-        return $this->runCommand();
+        $this->mpd_output = $mpd_output;
+        return $this;
     }
 
     /**
-     * void
+     * @return array
      */
-    protected function BuildCommand(): void
+    protected function getMpdOutput()
     {
-        foreach ($this->streams as $stream) {
-            $this->process->addCommand($stream->build());
+        if(!$this->mpd_output){
+            return null;
         }
 
-        $this->process->addCommand($this->options());
-
-        $this->process->addCommand(MediaOptions::MPD_OUTPUT . "=" . $this->mpd_output);
+        return [MediaOptions::MPD_OUTPUT, $this->mpd_output];
     }
 }

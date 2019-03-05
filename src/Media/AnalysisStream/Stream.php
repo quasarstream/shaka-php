@@ -41,7 +41,7 @@ class Stream implements \Countable
      * @param bool $string
      * @return mixed
      */
-    public function get($attr = ['*'], $string = false)
+    public function get($attr = ['*'], $string = true)
     {
         if (!is_array($attr)) {
             $attr = array($attr);

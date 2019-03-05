@@ -17,10 +17,33 @@
  */
 
 
-namespace Shaka\Media\Traits;
+namespace Shaka\Options\Streams;
 
 
-trait AdInsertion
+class DASHStream extends DRMStream
 {
+    /** @var string */
+    private $dash_roles;
 
+    /**
+     * @param string $dash_roles
+     * @return DASHStream
+     */
+    public function setDashRoles(string $dash_roles): DASHStream
+    {
+        $this->dash_roles = $dash_roles;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    protected function getDashRoles()
+    {
+        if(!$this->dash_roles){
+            return null;
+        }
+
+        return StreamOptions::DASH_ROLES . '=' . $this->dash_roles;
+    }
 }

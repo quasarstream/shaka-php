@@ -17,7 +17,7 @@
  */
 
 
-namespace Shaka\Streams;
+namespace Shaka\Options\Streams;
 
 
 class DRMStream extends Stream

@@ -20,25 +20,37 @@
 namespace Shaka\Media;
 
 
+use Shaka\Exception\StreamException;
 use Shaka\Media\AnalysisStream\Stream;
 use Shaka\Media\AnalysisStream\StreamCollection;
-use Shaka\Process\Process;
-use Shaka\Streams\StreamInterface;
 
 class Analysis extends ExportMedia
 {
-       /**
+    /**
      * @return mixed
+     * @throws StreamException
      * @throws \Shaka\Exception\ProcessException
      */
     public function export(): StreamCollection
     {
+        $this->analyse = true;
         return $this->parseData();
     }
 
     /**
+     * @return string
+     * @throws \Shaka\Exception\ProcessException
+     */
+    public function __toString()
+    {
+        return $this->runCommand();
+    }
+
+
+    /**
      * @return StreamCollection
      * @throws \Shaka\Exception\ProcessException
+     * @throws StreamException
      */
     private function parseData(): StreamCollection
     {
@@ -46,7 +58,7 @@ class Analysis extends ExportMedia
         $streams = new StreamCollection();
 
         foreach ($Streams as $key => $stream) {
-            if (strstr($stream, "Stream")) {
+            if (strstr($stream, "Stream [")) {
 
                 $stream_object = new Stream();
                 $attributes = explode(PHP_EOL, trim(preg_replace(['/(?:File) "(.*)":/', '/(?:Found) (?P<digit>\d+) (?:stream)\(s\)./', '/(?:Stream) (\[)(?P<digit>\d+)(\]) /'], '', $stream)));
@@ -60,18 +72,10 @@ class Analysis extends ExportMedia
             }
         }
 
-        return $streams;
-    }
-
-    /**
-     * void
-     */
-    protected function BuildCommand(): void
-    {
-        foreach ($this->streams as $stream) {
-            $this->process->addCommand($stream->build());
+        if (!$streams->all()) {
+            throw new StreamException("There is no Stream in the file!");
         }
 
-        $this->process->addCommand("--dump_stream_info");
+        return $streams;
     }
 }

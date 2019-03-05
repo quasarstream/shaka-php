@@ -17,30 +17,10 @@
  */
 
 
-namespace Shaka\Media;
+namespace Shaka\Options\Traits;
 
 
-use Shaka\Options\DASH;
-use Shaka\Options\DRM\Encryption;
-use Shaka\Options\HLS;
-
-interface MediaInterface
+trait AdInsertion
 {
-    /**
-     * @param DASH $dash
-     * @return $this
-     */
-    public function DASH(DASH $dash);
 
-    /**
-     * @param HLS $hls
-     * @return $this
-     */
-    public function HLS(HLS $hls);
-
-    /**
-     * @param Encryption $drm
-     * @return Media
-     */
-    public function DRM(Encryption $drm);
 }

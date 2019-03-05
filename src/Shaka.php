@@ -21,45 +21,56 @@ namespace Shaka;
 
 
 use Shaka\Media\Analysis;
-use Shaka\Media\DASH;
-use Shaka\Media\ExtractStreams;
+use Shaka\Media\Media;
+use Shaka\Options\DASH;
+use Shaka\Options\Streams\StreamInterface;
+use Shaka\Process\Process;
 use Shaka\Process\ShakaProcess;
 
 class Shaka
 {
-
+    /** @var Process */
     private $process;
+
+    /** @var array */
+    private $streams = [];
+
+    /** @var DASH */
+    private $dash;
 
     /**
      * Shaka constructor.
      * @param $process
      */
-    public function __construct($process)
+    public function __construct(Process $process)
     {
         $this->process = $process;
     }
 
     /**
+     * @param StreamInterface $stream
+     * @return $this
+     */
+    public function addStream(StreamInterface $stream)
+    {
+        $this->streams[] = $stream;
+        return $this;
+    }
+
+    /**
      * @return Analysis
      */
-    public function MediaFileAnalysis()
+    public function mediaFileAnalysis(): Analysis
     {
-        return new Analysis($this->process);
+        return new Analysis($this->process, $this->streams);
     }
 
     /**
-     * @return ExtractStreams
+     * @return Media
      */
-    public function extractStreams()
+    public function mediaPackaging()
     {
-        return new ExtractStreams($this->process);
-    }
-
-    /**
-     */
-    public function DASH()
-    {
-        return new DASH($this->process);
+        return new Media($this->process, $this->streams);
     }
 
     /**
