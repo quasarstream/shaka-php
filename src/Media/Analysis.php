@@ -40,6 +40,7 @@ class Analysis extends ExportMedia
     /**
      * @return string
      * @throws \Shaka\Exception\ProcessException
+     * @throws StreamException
      */
     public function __toString()
     {
@@ -54,10 +55,10 @@ class Analysis extends ExportMedia
      */
     private function parseData(): StreamCollection
     {
-        $Streams = explode(PHP_EOL . PHP_EOL, $this->runCommand());
+        $output = explode(PHP_EOL . PHP_EOL, $this->runCommand());
         $streams = new StreamCollection();
 
-        foreach ($Streams as $key => $stream) {
+        foreach ($output as $stream) {
             if (strstr($stream, "Stream [")) {
 
                 $stream_object = new Stream();

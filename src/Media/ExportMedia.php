@@ -24,6 +24,7 @@ use Shaka\Exception\StreamException;
 use Shaka\Options\DASH;
 use Shaka\Options\DRM\Encryption;
 use Shaka\Options\HLS;
+use Shaka\Options\MediaOptions;
 use Shaka\Process\Process;
 
 class ExportMedia
@@ -86,7 +87,7 @@ class ExportMedia
         // 7. HLS options
         // 8. DASH options
 
-        if(empty($this->streams)) {
+        if (empty($this->streams)) {
             throw new StreamException("There is no stream! At least 1 stream must be declared!");
         }
 
@@ -94,20 +95,20 @@ class ExportMedia
             $this->process->addCommand($stream->build());
         }
 
-        if($this->analyse) {
-            $this->process->addCommand("--dump_stream_info");
+        if ($this->analyse) {
+            $this->process->addCommand(MediaOptions::DUMP_STREAM_INFO);
             return;
         }
 
-        if(null !== $this->drm) {
+        if (null !== $this->drm) {
             $this->process->addCommand($this->drm->export());
         }
 
-        if(null !== $this->hls) {
+        if (null !== $this->hls) {
             $this->process->addCommand($this->hls->export());
         }
 
-        if(null !== $this->dash) {
+        if (null !== $this->dash) {
             $this->process->addCommand($this->dash->export());
         }
     }
@@ -121,5 +122,4 @@ class ExportMedia
     {
         return $this->runCommand();
     }
-
 }

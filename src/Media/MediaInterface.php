@@ -20,27 +20,27 @@
 namespace Shaka\Media;
 
 
-use Shaka\Options\DASH;
 use Shaka\Options\DRM\Encryption;
-use Shaka\Options\HLS;
 
 interface MediaInterface
 {
     /**
-     * @param DASH $dash
+     * @param string $output
+     * @param callable|null $options
      * @return $this
      */
-    public function DASH(DASH $dash);
+    public function DASH(string $output, callable $options = null);
 
     /**
-     * @param HLS $hls
+     * @param string $output
+     * @param callable|null $options
      * @return $this
      */
-    public function HLS(HLS $hls);
+    public function HLS(string $output, callable $options = null);
 
     /**
      * @param Encryption $drm
-     * @return Media
+     * @return $this
      */
     public function DRM(Encryption $drm);
 }

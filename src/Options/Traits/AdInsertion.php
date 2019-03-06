@@ -20,7 +20,32 @@
 namespace Shaka\Options\Traits;
 
 
+use Shaka\Options\MediaOptions;
+
 trait AdInsertion
 {
+    /** @var string*/
+    private $ad_cues;
 
+    /**
+     * @param string $ad_cues
+     * @return AdInsertion
+     */
+    public function setAdCues(string $ad_cues)
+    {
+        $this->ad_cues = $ad_cues;
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getAdCues()
+    {
+        if (!$this->ad_cues) {
+            return null;
+        }
+
+        return [MediaOptions::AD_CUES, $this->ad_cues];
+    }
 }

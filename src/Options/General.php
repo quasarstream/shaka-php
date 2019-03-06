@@ -21,13 +21,12 @@ namespace Shaka\Options;
 
 
 use Shaka\Options\Traits\Chunking;
-use Shaka\Options\Traits\Live;
 use Shaka\Options\Traits\AdInsertion;
 use Shaka\Options\Traits\MP4Output;
 
 class General extends ExportOptions
 {
-    use AdInsertion, Chunking, Live, MP4Output;
+    use AdInsertion, Chunking, MP4Output;
 
     /** @var string */
     private $time_shift_buffer_depth;

@@ -20,7 +20,110 @@
 namespace Shaka\Options\Traits;
 
 
+use Shaka\Options\MediaOptions;
+
 trait MP4Output
 {
+    /** @var bool*/
+    private $mp4_include_pssh_in_stream;
 
+    /** @var bool*/
+    private $generate_sidx_in_media_segments;
+
+    /** @var bool*/
+    private $nogenerate_sidx_in_media_segments;
+
+    /** @var bool*/
+    private $transport_stream_timestamp_offset_ms;
+
+    /**
+     * @return array
+     */
+    public function getMp4IncludePsshInStream()
+    {
+        if (!$this->mp4_include_pssh_in_stream) {
+            return null;
+        }
+
+        return [MediaOptions::MP4_INCLUDE_PSSH_IN_STREAM];
+    }
+
+    /**
+     * @param bool $mp4_include_pssh_in_stream
+     * @return MP4Output
+     */
+    public function setMp4IncludePsshInStream(bool $mp4_include_pssh_in_stream)
+    {
+        $this->mp4_include_pssh_in_stream = $mp4_include_pssh_in_stream;
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getGenerateSidxInMediaSegments()
+    {
+        if (!$this->generate_sidx_in_media_segments) {
+            return null;
+        }
+
+        return [MediaOptions::GENERATE_SIDX_IN_MEDIA_SEGMENTS];
+    }
+
+    /**
+     * @param bool $generate_sidx_in_media_segments
+     * @return MP4Output
+     */
+    public function setGenerateSidxInMediaSegments(bool $generate_sidx_in_media_segments)
+    {
+        $this->generate_sidx_in_media_segments = $generate_sidx_in_media_segments;
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getNogenerateSidxInMediaSegments()
+    {
+        if (!$this->nogenerate_sidx_in_media_segments) {
+            return null;
+        }
+
+        return [MediaOptions::NOGENERATE_SIDX_IN_MEDIA_SEGMENTS];
+    }
+
+    /**
+     * @param bool $nogenerate_sidx_in_media_segments
+     * @return MP4Output
+     */
+    public function setNogenerateSidxInMediaSegments(bool $nogenerate_sidx_in_media_segments)
+    {
+        $this->nogenerate_sidx_in_media_segments = $nogenerate_sidx_in_media_segments;
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getTransportStreamTimestampOffsetMs()
+    {
+        if (!$this->transport_stream_timestamp_offset_ms) {
+            return null;
+        }
+
+        return [MediaOptions::TRANSPORT_STREAM_TIMESTAMP_OFFSET_MS];
+    }
+
+    /**
+     * @param bool $transport_stream_timestamp_offset_ms
+     * @return MP4Output
+     */
+    public function setTransportStreamTimestampOffsetMs(bool $transport_stream_timestamp_offset_ms)
+    {
+        $this->transport_stream_timestamp_offset_ms = $transport_stream_timestamp_offset_ms;
+        return $this;
+    }
+    
+    
+    
 }

@@ -37,7 +37,7 @@ class HLS extends General
     /**
      * @return array
      */
-    public function getHlsMasterPlaylistOutput()
+    protected function getHlsMasterPlaylistOutput()
     {
         if (!$this->hls_master_playlist_output) {
             return null;
@@ -59,7 +59,7 @@ class HLS extends General
     /**
      * @return array
      */
-    public function getHlsBaseUrl()
+    protected function getHlsBaseUrl()
     {
         if (!$this->hls_base_url) {
             return null;
@@ -81,7 +81,7 @@ class HLS extends General
     /**
      * @return array
      */
-    public function getHlsKeyUri()
+    protected function getHlsKeyUri()
     {
         if (!$this->hls_key_uri) {
             return null;
@@ -103,7 +103,7 @@ class HLS extends General
     /**
      * @return array
      */
-    public function getHlsPlaylistType()
+    protected function getHlsPlaylistType()
     {
         if (!$this->hls_playlist_type) {
             return null;

@@ -43,6 +43,9 @@ class DASH extends General
     /** @var string */
     private $utc_timings;
 
+    /** @var bool */
+    private $allow_approximate_segment_timeline;
+
     /**
      * @return array
      */
@@ -196,4 +199,27 @@ class DASH extends General
 
         return [MediaOptions::MPD_OUTPUT, $this->mpd_output];
     }
+
+    /**
+     * @param bool $allow_approximate_segment_timeline
+     * @return $this
+     */
+    public function setAllowApproximateSegmentTimeline(bool $allow_approximate_segment_timeline = true)
+    {
+        $this->allow_approximate_segment_timeline = $allow_approximate_segment_timeline;
+        return $this;
+    }
+
+    /**
+     * @return array | null
+     */
+    public function getAllowApproximateSegmentTimeline()
+    {
+        if(!$this->allow_approximate_segment_timeline) {
+            return null;
+        }
+
+        return [MediaOptions::ALLOW_APPROXIMATE_SEGMENT_TIMELINE];
+    }
+
 }

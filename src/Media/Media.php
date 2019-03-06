@@ -37,21 +37,37 @@ class Media extends ExportMedia implements MediaInterface
     }
 
     /**
-     * @param HLS $hls
+     * @param string $output
+     * @param callable|null $options
      * @return $this
      */
-    public function HLS(HLS $hls)
+    public function HLS(string $output, callable $options = null)
     {
+        $hls = new HLS();
+        $hls = $hls->setHlsMasterPlaylistOutput($output);
+
+        if(is_callable($options)) {
+            $hls = $options($hls);
+        }
+
         $this->hls = $hls;
         return $this;
     }
 
     /**
-     * @param DASH $dash
+     * @param string $output
+     * @param callable|null $options
      * @return $this
      */
-    public function DASH(DASH $dash)
+    public function DASH(string $output, callable $options = null)
     {
+        $dash = new DASH();
+        $dash = $dash->setMpdOutput($output);
+
+        if(is_callable($options)) {
+            $dash = $options($dash);
+        }
+
         $this->dash = $dash;
         return $this;
     }

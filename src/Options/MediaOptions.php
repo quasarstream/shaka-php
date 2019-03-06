@@ -22,6 +22,10 @@ namespace Shaka\Options;
 
 class MediaOptions
 {
+    //DUMP STREAM INFO
+    const DUMP_STREAM_INFO = '--dump_stream_info';
+
+
     //General Options
     const TIME_SHIFT_BUFFER_DEPTH = '--time_shift_buffer_depth';
 
@@ -47,18 +51,39 @@ class MediaOptions
 
     const UTC_TIMINGS = '--utc_timings';
 
+    const ALLOW_APPROXIMATE_SEGMENT_TIMELINE = '--allow_approximate_segment_timeline';
+
 
     //HLS Options
-    const HLS_MASTER_PLAYLIST_OUTPUT = '--generate_static_mpd';
+    const HLS_MASTER_PLAYLIST_OUTPUT = '--hls_master_playlist_output';
 
-    const HLS_BASE_URL = '--mpd_output';
+    const HLS_BASE_URL = '--hls_base_url';
 
-    const HLS_KEY_URI = '--base_urls';
+    const HLS_KEY_URI = '--hls_key_uri';
 
-    const HLS_PLAYLIST_TYPE = '--min_buffer_time';
+    const HLS_PLAYLIST_TYPE = '--hls_playlist_type';
 
 
-    //Live Options
-    const ALLOW_APPROXIMATE_SEGMENT_TIMELINE = 'allow_approximate_segment_timeline';
+    //Chunking Options
+    const SEGMENT_DURATION  = '--segment_duration';
 
+    const FRAGMENT_DURATION = '--fragment_duration';
+
+    const SEGMENT_SAP_ALIGNED = '--segment_sap_aligned';
+
+    const FRAGMENT_SAP_ALIGNED = '--fragment_sap_aligned';
+
+
+    //MP4 Output Options
+    const MP4_INCLUDE_PSSH_IN_STREAM = '--mp4_include_pssh_in_stream';
+
+    const GENERATE_SIDX_IN_MEDIA_SEGMENTS = '--generate_sidx_in_media_segments';
+
+    const NOGENERATE_SIDX_IN_MEDIA_SEGMENTS = '--nogenerate_sidx_in_media_segments';
+
+    const TRANSPORT_STREAM_TIMESTAMP_OFFSET_MS = '--transport_stream_timestamp_offset_ms';
+
+
+    //AdInsertion Option
+    const AD_CUES = '--ad_cues';
 }

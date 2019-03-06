@@ -20,9 +20,9 @@
 namespace Shaka;
 
 
+use Shaka\Exception\StreamException;
 use Shaka\Media\Analysis;
 use Shaka\Media\Media;
-use Shaka\Options\DASH;
 use Shaka\Options\Streams\StreamInterface;
 use Shaka\Process\Process;
 use Shaka\Process\ShakaProcess;
@@ -35,9 +35,6 @@ class Shaka
     /** @var array */
     private $streams = [];
 
-    /** @var DASH */
-    private $dash;
-
     /**
      * Shaka constructor.
      * @param $process
@@ -48,12 +45,20 @@ class Shaka
     }
 
     /**
-     * @param StreamInterface $stream
      * @return $this
+     * @throws StreamException
      */
-    public function addStream(StreamInterface $stream)
+    public function streams()
     {
-        $this->streams[] = $stream;
+        $streams = func_get_args();
+
+        foreach ($streams as $stream) {
+            if (!$stream instanceof StreamInterface) {
+                throw new StreamException('Input of stream must be instance of StreamInterface');
+            }
+        }
+
+        $this->streams = $streams;
         return $this;
     }
 
