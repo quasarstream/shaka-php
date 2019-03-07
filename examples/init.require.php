@@ -9,11 +9,12 @@
  * file that was distributed with this source code.
  */
 
+$autoload_path = __DIR__ . '/../vendor/autoload.php';
 
-namespace Shaka\Options\DRM;
-
-
-class PlayReady extends Encryption
-{
-
+if(!is_file($autoload_path)){
+    exit('please install the package via composer.');
 }
+
+require_once $autoload_path;
+
+$base_path = 'the/path/to/the/source/directory/';
