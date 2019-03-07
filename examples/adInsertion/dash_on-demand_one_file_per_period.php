@@ -15,17 +15,7 @@ describes the streams.
 use Shaka\Options\Streams\DASHStream;
 
 require_once '../init.require.php';
-/*
- *
- * 'in=h264_baseline_360p_600.mp4,stream=audio,output=audio_$Number$.mp4' \
-  'in=input_text.vtt,stream=text,output=output_text_$Number$.mp4' \
-  'in=h264_baseline_360p_600.mp4,stream=video,output=h264_360p_$Number$.mp4' \
-  'in=h264_main_480p_1000.mp4,stream=video,output=h264_480p_$Number$.mp4' \
-  'in=h264_main_720p_3000.mp4,stream=video,output=h264_720p_$Number$.mp4' \
-  'in=h264_high_1080p_6000.mp4,stream=video,output=h264_1080p_$Number$.mp4' \
-  --ad_cues 600;1800;3000 \
-  --mpd_output h264.mpd
- * */
+
 $stream1 = DASHStream::input($h264_baseline_360p)
     ->streamSelector('audio')
     ->output($output_path . 'audio_$Number$.mp4');
