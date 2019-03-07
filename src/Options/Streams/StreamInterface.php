@@ -26,11 +26,11 @@ interface StreamInterface
      * @param string $input
      * @return $this
      */
-    public function setInput(string $input);
+    public static function Input(string $input);
 
     /**
      * @param string $output
      * @return $this
      */
-    public function setOutput(string $output);
+    public function Output(string $output);
 }

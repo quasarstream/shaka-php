@@ -49,7 +49,7 @@ class DASH extends General
     /**
      * @return array
      */
-    public function getGenerateStaticMpd()
+    protected function __getGenerateStaticMpd()
     {
         if (!$this->generate_static_mpd) {
             return null;
@@ -62,7 +62,7 @@ class DASH extends General
      * @param bool $generate_static_mpd
      * @return DASH
      */
-    public function setGenerateStaticMpd(bool $generate_static_mpd = true): DASH
+    public function generateStaticMpd(bool $generate_static_mpd = true): DASH
     {
         $this->generate_static_mpd = $generate_static_mpd;
         return $this;
@@ -71,7 +71,7 @@ class DASH extends General
     /**
      * @return array
      */
-    protected function getBaseUrls()
+    protected function __getBaseUrls()
     {
         if (!$this->base_urls) {
             return null;
@@ -84,7 +84,7 @@ class DASH extends General
      * @param string $base_urls
      * @return DASH
      */
-    public function setBaseUrls(string $base_urls): DASH
+    public function baseUrls(string $base_urls): DASH
     {
         $this->base_urls = $base_urls;
         return $this;
@@ -93,7 +93,7 @@ class DASH extends General
     /**
      * @return array
      */
-    protected function getMinBufferTime()
+    protected function __getMinBufferTime()
     {
         if (!$this->min_buffer_time) {
             return null;
@@ -106,7 +106,7 @@ class DASH extends General
      * @param string $min_buffer_time
      * @return DASH
      */
-    public function setMinBufferTime(string $min_buffer_time): DASH
+    public function minBufferTime(string $min_buffer_time): DASH
     {
         $this->min_buffer_time = $min_buffer_time;
         return $this;
@@ -115,7 +115,7 @@ class DASH extends General
     /**
      * @return array
      */
-    protected function getMinimumUpdatePeriod()
+    protected function __getMinimumUpdatePeriod()
     {
         if (!$this->minimum_update_period) {
             return null;
@@ -128,7 +128,7 @@ class DASH extends General
      * @param string $minimum_update_period
      * @return DASH
      */
-    public function setMinimumUpdatePeriod(string $minimum_update_period): DASH
+    public function minimumUpdatePeriod(string $minimum_update_period): DASH
     {
         $this->minimum_update_period = $minimum_update_period;
         return $this;
@@ -137,7 +137,7 @@ class DASH extends General
     /**
      * @return array
      */
-    protected function getSuggestedPresentationDelay()
+    protected function __getSuggestedPresentationDelay()
     {
         if (!$this->suggested_presentation_delay) {
             return null;
@@ -150,7 +150,7 @@ class DASH extends General
      * @param string $suggested_presentation_delay
      * @return DASH
      */
-    public function setSuggestedPresentationDelay(string $suggested_presentation_delay): DASH
+    public function suggestedPresentationDelay(string $suggested_presentation_delay): DASH
     {
         $this->suggested_presentation_delay = $suggested_presentation_delay;
         return $this;
@@ -159,7 +159,7 @@ class DASH extends General
     /**
      * @return array
      */
-    protected function getUtcTimings()
+    protected function __getUtcTimings()
     {
         if (!$this->utc_timings) {
             return null;
@@ -172,7 +172,7 @@ class DASH extends General
      * @param string $utc_timings
      * @return DASH
      */
-    public function setUtcTimings(string $utc_timings): DASH
+    public function utcTimings(string $utc_timings): DASH
     {
         $this->utc_timings = $utc_timings;
         return $this;
@@ -182,7 +182,7 @@ class DASH extends General
      * @param string $mpd_output
      * @return DASH
      */
-    public function setMpdOutput(string $mpd_output): DASH
+    public function mpdOutput(string $mpd_output): DASH
     {
         $this->mpd_output = $mpd_output;
         return $this;
@@ -191,7 +191,7 @@ class DASH extends General
     /**
      * @return array
      */
-    protected function getMpdOutput()
+    protected function __getMpdOutput()
     {
         if (!$this->mpd_output) {
             return null;
@@ -204,7 +204,7 @@ class DASH extends General
      * @param bool $allow_approximate_segment_timeline
      * @return $this
      */
-    public function setAllowApproximateSegmentTimeline(bool $allow_approximate_segment_timeline = true)
+    public function allowApproximateSegmentTimeline(bool $allow_approximate_segment_timeline = true)
     {
         $this->allow_approximate_segment_timeline = $allow_approximate_segment_timeline;
         return $this;
@@ -213,7 +213,7 @@ class DASH extends General
     /**
      * @return array | null
      */
-    public function getAllowApproximateSegmentTimeline()
+    protected function __getAllowApproximateSegmentTimeline()
     {
         if(!$this->allow_approximate_segment_timeline) {
             return null;

@@ -43,7 +43,7 @@ class General extends ExportOptions
     /**
      * @return array
      */
-    protected function getTimeShiftBufferDepth()
+    protected function __getTimeShiftBufferDepth()
     {
         if (!$this->time_shift_buffer_depth) {
             return null;
@@ -56,7 +56,7 @@ class General extends ExportOptions
      * @param string $time_shift_buffer_depth
      * @return $this
      */
-    public function setTimeShiftBufferDepth(string $time_shift_buffer_depth)
+    public function timeShiftBufferDepth(string $time_shift_buffer_depth)
     {
         $this->time_shift_buffer_depth = $time_shift_buffer_depth;
         return $this;
@@ -65,7 +65,7 @@ class General extends ExportOptions
     /**
      * @return array
      */
-    protected function getPreservedSegmentsOutsideLiveWindow()
+    protected function __getPreservedSegmentsOutsideLiveWindow()
     {
         if (!$this->preserved_segments_outside_live_window) {
             return null;
@@ -78,7 +78,7 @@ class General extends ExportOptions
      * @param string $preserved_segments_outside_live_window
      * @return $this
      */
-    public function setPreservedSegmentsOutsideLiveWindow(string $preserved_segments_outside_live_window)
+    public function preservedSegmentsOutsideLiveWindow(string $preserved_segments_outside_live_window)
     {
         $this->preserved_segments_outside_live_window = $preserved_segments_outside_live_window;
         return $this;
@@ -87,7 +87,7 @@ class General extends ExportOptions
     /**
      * @return array
      */
-    protected function getDefaultLanguage()
+    protected function __getDefaultLanguage()
     {
         if (!$this->default_language) {
             return null;
@@ -100,7 +100,7 @@ class General extends ExportOptions
      * @param string $default_language
      * @return $this
      */
-    public function setDefaultLanguage(string $default_language)
+    public function defaultLanguage(string $default_language)
     {
         $this->default_language = $default_language;
         return $this;
@@ -109,7 +109,7 @@ class General extends ExportOptions
     /**
      * @return array
      */
-    protected function getDefaultTextLanguage()
+    protected function __getDefaultTextLanguage()
     {
         if (!$this->default_text_language) {
             return null;
@@ -122,7 +122,7 @@ class General extends ExportOptions
      * @param string $default_text_language
      * @return $this
      */
-    public function setDefaultTextLanguage(string $default_text_language)
+    public function defaultTextLanguage(string $default_text_language)
     {
         $this->default_text_language = $default_text_language;
         return $this;

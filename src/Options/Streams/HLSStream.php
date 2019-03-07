@@ -40,7 +40,7 @@ class HLSStream extends DRMStream
     /**
      * @return string
      */
-    protected function getHlsName()
+    protected function __getHlsName()
     {
         if (!$this->hls_name) {
             return null;
@@ -53,7 +53,7 @@ class HLSStream extends DRMStream
      * @param string $hls_name
      * @return HLSStream
      */
-    public function setHlsName(string $hls_name): HLSStream
+    public function HLSName(string $hls_name): HLSStream
     {
         $this->hls_name = $hls_name;
         return $this;
@@ -62,7 +62,7 @@ class HLSStream extends DRMStream
     /**
      * @return string
      */
-    protected function getHlsGroupId()
+    protected function __getHlsGroupId()
     {
         if (!$this->hls_group_id) {
             return null;
@@ -75,7 +75,7 @@ class HLSStream extends DRMStream
      * @param string $hls_group_id
      * @return HLSStream
      */
-    public function setHlsGroupId(string $hls_group_id): HLSStream
+    public function HLSsGroupId(string $hls_group_id): HLSStream
     {
         $this->hls_group_id = $hls_group_id;
         return $this;
@@ -84,7 +84,7 @@ class HLSStream extends DRMStream
     /**
      * @return string
      */
-    protected function getPlaylistName()
+    protected function __getPlaylistName()
     {
         if (!$this->playlist_name) {
             return null;
@@ -97,7 +97,7 @@ class HLSStream extends DRMStream
      * @param string $playlist_name
      * @return HLSStream
      */
-    public function setPlaylistName(string $playlist_name): HLSStream
+    public function playlistName(string $playlist_name): HLSStream
     {
         $this->playlist_name = $playlist_name;
         return $this;
@@ -106,7 +106,7 @@ class HLSStream extends DRMStream
     /**
      * @return string
      */
-    protected function getIframePlaylistName()
+    protected function __getIframePlaylistName()
     {
         if (!$this->iframe_playlist_name) {
             return null;
@@ -119,7 +119,7 @@ class HLSStream extends DRMStream
      * @param string $iframe_playlist_name
      * @return HLSStream
      */
-    public function setIframePlaylistName(string $iframe_playlist_name): HLSStream
+    public function iframePlaylistName(string $iframe_playlist_name): HLSStream
     {
         $this->iframe_playlist_name = $iframe_playlist_name;
         return $this;
@@ -128,7 +128,7 @@ class HLSStream extends DRMStream
     /**
      * @return string
      */
-    protected function getHlsCharacteristics()
+    protected function __getHlsCharacteristics()
     {
         if (!$this->hls_characteristics) {
             return null;
@@ -141,7 +141,7 @@ class HLSStream extends DRMStream
      * @param string $hls_characteristics
      * @return HLSStream
      */
-    public function setHlsCharacteristics(string $hls_characteristics): HLSStream
+    public function HLSCharacteristics(string $hls_characteristics): HLSStream
     {
         $this->hls_characteristics = $hls_characteristics;
         return $this;

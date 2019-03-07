@@ -29,7 +29,7 @@ abstract class BuildStream implements StreamInterface
     public function build()
     {
         $stream = '';
-        $get_methods = preg_grep('/^get/', get_class_methods($this));
+        $get_methods = preg_grep('/^__get/', get_class_methods($this));
 
         foreach ($get_methods as $method) {
 

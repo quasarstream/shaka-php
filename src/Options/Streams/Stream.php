@@ -50,9 +50,18 @@ class Stream extends BuildStream
     private $trick_play_factor;
 
     /**
+     * Stream constructor.
+     * @param string $input
+     */
+    public function __construct(string $input)
+    {
+        $this->input = $input;
+    }
+
+    /**
      * @return string
      */
-    protected function getInput()
+    protected function __getInput()
     {
         if (!$this->input) {
             return null;
@@ -65,16 +74,15 @@ class Stream extends BuildStream
      * @param string $input
      * @return $this
      */
-    public function setInput(string $input)
+    public static function input(string $input)
     {
-        $this->input = $input;
-        return $this;
+        return new static($input);
     }
 
     /**
      * @return string
      */
-    protected function getStreamSelector()
+    protected function __getStreamSelector()
     {
         if (!$this->stream_selector) {
             return null;
@@ -87,7 +95,7 @@ class Stream extends BuildStream
      * @param string $stream_selector
      * @return $this
      */
-    public function setStreamSelector(string $stream_selector)
+    public function streamSelector(string $stream_selector)
     {
         $this->stream_selector = $stream_selector;
         return $this;
@@ -96,7 +104,7 @@ class Stream extends BuildStream
     /**
      * @return string
      */
-    protected function getOutput()
+    protected function __getOutput()
     {
         if (!$this->output) {
             return null;
@@ -109,7 +117,7 @@ class Stream extends BuildStream
      * @param string $output
      * @return $this
      */
-    public function setOutput(string $output)
+    public function output(string $output)
     {
         $this->output = $output;
         return $this;
@@ -118,7 +126,7 @@ class Stream extends BuildStream
     /**
      * @return string
      */
-    protected function getInitSegment()
+    protected function __getInitSegment()
     {
         if (!$this->init_segment) {
             return null;
@@ -131,7 +139,7 @@ class Stream extends BuildStream
      * @param string $init_segment
      * @return $this
      */
-    public function setInitSegment(string $init_segment)
+    public function initSegment(string $init_segment)
     {
         $this->init_segment = $init_segment;
         return $this;
@@ -140,7 +148,7 @@ class Stream extends BuildStream
     /**
      * @return string
      */
-    protected function getSegmentTemplate()
+    protected function __getSegmentTemplate()
     {
         if (!$this->segment_template) {
             return null;
@@ -153,7 +161,7 @@ class Stream extends BuildStream
      * @param string $segment_template
      * @return $this
      */
-    public function setSegmentTemplate(string $segment_template)
+    public function segmentTemplate(string $segment_template)
     {
         $this->segment_template = $segment_template;
         return $this;
@@ -162,7 +170,7 @@ class Stream extends BuildStream
     /**
      * @return string
      */
-    protected function getBandwidth()
+    protected function __getBandwidth()
     {
         if (!$this->bandwidth) {
             return null;
@@ -175,7 +183,7 @@ class Stream extends BuildStream
      * @param string $bandwidth
      * @return $this
      */
-    public function setBandwidth(string $bandwidth)
+    public function bandwidth(string $bandwidth)
     {
         $this->bandwidth = $bandwidth;
         return $this;
@@ -184,7 +192,7 @@ class Stream extends BuildStream
     /**
      * @return string
      */
-    protected function getLanguage()
+    protected function __getLanguage()
     {
         if (!$this->language) {
             return null;
@@ -197,7 +205,7 @@ class Stream extends BuildStream
      * @param string $language
      * @return $this
      */
-    public function setLanguage(string $language)
+    public function language(string $language)
     {
         $this->language = $language;
         return $this;
@@ -206,7 +214,7 @@ class Stream extends BuildStream
     /**
      * @return string
      */
-    protected function getOutputFormat()
+    protected function __getOutputFormat()
     {
         if (!$this->output_format) {
             return null;
@@ -219,7 +227,7 @@ class Stream extends BuildStream
      * @param string $output_format
      * @return $this
      */
-    public function setOutputFormat(string $output_format)
+    public function outputFormat(string $output_format)
     {
         $this->output_format = $output_format;
         return $this;
@@ -228,7 +236,7 @@ class Stream extends BuildStream
     /**
      * @return string
      */
-    protected function getTrickPlayFactor()
+    protected function __getTrickPlayFactor()
     {
         if (!$this->trick_play_factor) {
             return null;
@@ -241,7 +249,7 @@ class Stream extends BuildStream
      * @param string $trick_play_factor
      * @return $this
      */
-    public function setTrickPlayFactor(string $trick_play_factor)
+    public function trickPlayFactor(string $trick_play_factor)
     {
         $this->trick_play_factor = $trick_play_factor;
         return $this;

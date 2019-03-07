@@ -44,7 +44,7 @@ class Media extends ExportMedia implements MediaInterface
     public function HLS(string $output, callable $options = null)
     {
         $hls = new HLS();
-        $hls = $hls->setHlsMasterPlaylistOutput($output);
+        $hls = $hls->HLSMasterPlaylistOutput($output);
 
         if(is_callable($options)) {
             $hls = $options($hls);
@@ -62,7 +62,7 @@ class Media extends ExportMedia implements MediaInterface
     public function DASH(string $output, callable $options = null)
     {
         $dash = new DASH();
-        $dash = $dash->setMpdOutput($output);
+        $dash = $dash->mpdOutput($output);
 
         if(is_callable($options)) {
             $dash = $options($dash);

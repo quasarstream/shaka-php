@@ -39,7 +39,7 @@ trait Chunking
     /**
      * @return array
      */
-    public function getSegmentDuration()
+    protected function __getSegmentDuration()
     {
         if (!$this->segment_duration) {
             return null;
@@ -52,7 +52,7 @@ trait Chunking
      * @param string $segment_duration
      * @return Chunking
      */
-    public function setSegmentDuration(string $segment_duration)
+    public function segmentDuration(string $segment_duration)
     {
         $this->segment_duration = $segment_duration;
         return $this;
@@ -61,7 +61,7 @@ trait Chunking
     /**
      * @return array
      */
-    public function getFragmentDuration()
+    protected function __getFragmentDuration()
     {
         if (!$this->fragment_duration) {
             return null;
@@ -74,7 +74,7 @@ trait Chunking
      * @param string $fragment_duration
      * @return Chunking
      */
-    public function setFragmentDuration(string $fragment_duration)
+    public function fragmentDuration(string $fragment_duration)
     {
         $this->fragment_duration = $fragment_duration;
         return $this;
@@ -83,7 +83,7 @@ trait Chunking
     /**
      * @return array
      */
-    public function getSegmentSapAligned()
+    protected function __getSegmentSapAligned()
     {
         if (!$this->segment_sap_aligned) {
             return null;
@@ -96,7 +96,7 @@ trait Chunking
      * @param bool $segment_sap_aligned
      * @return Chunking
      */
-    public function setSegmentSapAligned(bool $segment_sap_aligned = true)
+    public function segmentSapAligned(bool $segment_sap_aligned = true)
     {
         $this->segment_sap_aligned = $segment_sap_aligned;
         return $this;
@@ -105,7 +105,7 @@ trait Chunking
     /**
      * @return array
      */
-    public function getFragmentSapAligned()
+    protected function __getFragmentSapAligned()
     {
         if (!$this->fragment_sap_aligned) {
             return null;
@@ -118,7 +118,7 @@ trait Chunking
      * @param bool $fragment_sap_aligned
      * @return Chunking
      */
-    public function setFragmentSapAligned(bool $fragment_sap_aligned = true)
+    public function fragmentSapAligned(bool $fragment_sap_aligned = true)
     {
         $this->fragment_sap_aligned = $fragment_sap_aligned;
         return $this;

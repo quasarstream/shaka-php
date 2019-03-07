@@ -37,7 +37,7 @@ class HLS extends General
     /**
      * @return array
      */
-    protected function getHlsMasterPlaylistOutput()
+    protected function __getHlsMasterPlaylistOutput()
     {
         if (!$this->hls_master_playlist_output) {
             return null;
@@ -50,7 +50,7 @@ class HLS extends General
      * @param string $hls_master_playlist_output
      * @return HLS
      */
-    public function setHlsMasterPlaylistOutput(string $hls_master_playlist_output): HLS
+    public function HLSMasterPlaylistOutput(string $hls_master_playlist_output): HLS
     {
         $this->hls_master_playlist_output = $hls_master_playlist_output;
         return $this;
@@ -59,7 +59,7 @@ class HLS extends General
     /**
      * @return array
      */
-    protected function getHlsBaseUrl()
+    protected function __getHlsBaseUrl()
     {
         if (!$this->hls_base_url) {
             return null;
@@ -72,7 +72,7 @@ class HLS extends General
      * @param string $hls_base_url
      * @return HLS
      */
-    public function setHlsBaseUrl(string $hls_base_url): HLS
+    public function HLSBaseUrl(string $hls_base_url): HLS
     {
         $this->hls_base_url = $hls_base_url;
         return $this;
@@ -81,7 +81,7 @@ class HLS extends General
     /**
      * @return array
      */
-    protected function getHlsKeyUri()
+    protected function __getHlsKeyUri()
     {
         if (!$this->hls_key_uri) {
             return null;
@@ -94,7 +94,7 @@ class HLS extends General
      * @param string $hls_key_uri
      * @return HLS
      */
-    public function setHlsKeyUri(string $hls_key_uri): HLS
+    public function HLSKeyUri(string $hls_key_uri): HLS
     {
         $this->hls_key_uri = $hls_key_uri;
         return $this;
@@ -103,7 +103,7 @@ class HLS extends General
     /**
      * @return array
      */
-    protected function getHlsPlaylistType()
+    protected function __getHlsPlaylistType()
     {
         if (!$this->hls_playlist_type) {
             return null;
@@ -116,7 +116,7 @@ class HLS extends General
      * @param string $hls_playlist_type
      * @return HLS
      */
-    public function setHlsPlaylistType(string $hls_playlist_type): HLS
+    public function HLSPlaylistType(string $hls_playlist_type): HLS
     {
         $this->hls_playlist_type = $hls_playlist_type;
         return $this;

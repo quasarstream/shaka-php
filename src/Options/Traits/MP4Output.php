@@ -39,7 +39,7 @@ trait MP4Output
     /**
      * @return array
      */
-    public function getMp4IncludePsshInStream()
+    protected function __getMp4IncludePsshInStream()
     {
         if (!$this->mp4_include_pssh_in_stream) {
             return null;
@@ -52,7 +52,7 @@ trait MP4Output
      * @param bool $mp4_include_pssh_in_stream
      * @return MP4Output
      */
-    public function setMp4IncludePsshInStream(bool $mp4_include_pssh_in_stream)
+    public function Mp4IncludePsshInStream(bool $mp4_include_pssh_in_stream)
     {
         $this->mp4_include_pssh_in_stream = $mp4_include_pssh_in_stream;
         return $this;
@@ -61,7 +61,7 @@ trait MP4Output
     /**
      * @return array
      */
-    public function getGenerateSidxInMediaSegments()
+    protected function __getGenerateSidxInMediaSegments()
     {
         if (!$this->generate_sidx_in_media_segments) {
             return null;
@@ -74,7 +74,7 @@ trait MP4Output
      * @param bool $generate_sidx_in_media_segments
      * @return MP4Output
      */
-    public function setGenerateSidxInMediaSegments(bool $generate_sidx_in_media_segments)
+    public function generateSidxInMediaSegments(bool $generate_sidx_in_media_segments)
     {
         $this->generate_sidx_in_media_segments = $generate_sidx_in_media_segments;
         return $this;
@@ -83,7 +83,7 @@ trait MP4Output
     /**
      * @return array
      */
-    public function getNogenerateSidxInMediaSegments()
+    protected function __getNogenerateSidxInMediaSegments()
     {
         if (!$this->nogenerate_sidx_in_media_segments) {
             return null;
@@ -96,7 +96,7 @@ trait MP4Output
      * @param bool $nogenerate_sidx_in_media_segments
      * @return MP4Output
      */
-    public function setNogenerateSidxInMediaSegments(bool $nogenerate_sidx_in_media_segments)
+    public function nogenerateSidxInMediaSegments(bool $nogenerate_sidx_in_media_segments)
     {
         $this->nogenerate_sidx_in_media_segments = $nogenerate_sidx_in_media_segments;
         return $this;
@@ -105,7 +105,7 @@ trait MP4Output
     /**
      * @return array
      */
-    public function getTransportStreamTimestampOffsetMs()
+    protected function __getTransportStreamTimestampOffsetMs()
     {
         if (!$this->transport_stream_timestamp_offset_ms) {
             return null;
@@ -118,7 +118,7 @@ trait MP4Output
      * @param bool $transport_stream_timestamp_offset_ms
      * @return MP4Output
      */
-    public function setTransportStreamTimestampOffsetMs(bool $transport_stream_timestamp_offset_ms)
+    public function transportStreamTimestampOffsetMs(bool $transport_stream_timestamp_offset_ms)
     {
         $this->transport_stream_timestamp_offset_ms = $transport_stream_timestamp_offset_ms;
         return $this;

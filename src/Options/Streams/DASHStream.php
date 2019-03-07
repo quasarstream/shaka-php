@@ -29,7 +29,7 @@ class DASHStream extends DRMStream
      * @param string $dash_roles
      * @return DASHStream
      */
-    public function setDashRoles(string $dash_roles): DASHStream
+    public function DASHRoles(string $dash_roles): DASHStream
     {
         $this->dash_roles = $dash_roles;
         return $this;
@@ -38,7 +38,7 @@ class DASHStream extends DRMStream
     /**
      * @return string
      */
-    protected function getDashRoles()
+    protected function __getDashRoles()
     {
         if (!$this->dash_roles) {
             return null;

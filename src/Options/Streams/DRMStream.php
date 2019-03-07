@@ -31,7 +31,7 @@ class DRMStream extends Stream
     /**
      * @return string
      */
-    protected function getSkipEncryption()
+    protected function __getSkipEncryption()
     {
         if (!$this->skip_encryption) {
             return null;
@@ -44,7 +44,7 @@ class DRMStream extends Stream
      * @param string $skip_encryption
      * @return $this
      */
-    public function setSkipEncryption(string $skip_encryption)
+    public function skipEncryption(string $skip_encryption)
     {
         $this->skip_encryption = $skip_encryption;
         return $this;
@@ -53,7 +53,7 @@ class DRMStream extends Stream
     /**
      * @return string
      */
-    protected function getDrmLabel()
+    protected function __getDrmLabel()
     {
         if (!$this->drm_label) {
             return null;
@@ -66,7 +66,7 @@ class DRMStream extends Stream
      * @param string $drm_label
      * @return $this
      */
-    public function setDrmLabel(string $drm_label)
+    public function drmLabel(string $drm_label)
     {
         $this->drm_label = $drm_label;
         return $this;

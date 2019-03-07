@@ -31,7 +31,7 @@ trait AdInsertion
      * @param string $ad_cues
      * @return AdInsertion
      */
-    public function setAdCues(string $ad_cues)
+    public function adCues(string $ad_cues)
     {
         $this->ad_cues = $ad_cues;
         return $this;
@@ -40,7 +40,7 @@ trait AdInsertion
     /**
      * @return array
      */
-    public function getAdCues()
+    protected function __getAdCues()
     {
         if (!$this->ad_cues) {
             return null;

@@ -28,7 +28,7 @@ class ExportOptions implements OptionInterface
     public function export()
     {
         $options = [];
-        $get_methods = preg_grep('/^get/', get_class_methods($this));
+        $get_methods = preg_grep('/^__get/', get_class_methods($this));
 
         foreach ($get_methods as $method) {
             if (null !== ($option = $this->{$method}())) {
