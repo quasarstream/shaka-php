@@ -2,7 +2,7 @@
 
 /**
 =========================================================
-Single file MP4 output
+Single file MP4 output + ad
 =========================================================
 The example below uses the H264 streams created in Media Encoding.
 

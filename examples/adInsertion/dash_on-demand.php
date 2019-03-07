@@ -2,7 +2,7 @@
 
 /**
 =========================================================
-on-demand
+on-demand + ad
 =========================================================
 The example below uses the H264 streams created in Media Encoding.
 It can be applied to VP9 in the same way.

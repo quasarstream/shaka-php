@@ -2,7 +2,7 @@
 
 /**
 =========================================================
-static-live
+static-live + ad
 =========================================================
 The example below creates five groups of segments
 (each with an init segment and a series of media segments)
