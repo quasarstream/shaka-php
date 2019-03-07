@@ -17,7 +17,6 @@ class StreamCollection implements \Countable, \IteratorAggregate
 {
     private $streams;
 
-
     /**
      * @param Stream $stream
      * @return $this

@@ -27,7 +27,7 @@ abstract class BuildStream implements StreamInterface
         foreach ($get_methods as $method) {
 
             if (null !== ($descriptor = $this->{$method}())) {
-                if ($method == 'getInput') {
+                if ($method == '__getInput') {
                     $stream = $descriptor . $stream;
                     continue;
                 }

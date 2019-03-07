@@ -77,6 +77,78 @@ class MediaOptions
     const TRANSPORT_STREAM_TIMESTAMP_OFFSET_MS = '--transport_stream_timestamp_offset_ms';
 
 
+
+    //General Encryption Options
+    const PROTECTION_SCHEME = '--protection_scheme';
+
+    const VP9_SUBSAMPLE_ENCRYPTION = '--vp9_subsample_encryption';
+
+    const NOVP9_SUBSAMPLE_ENCRYPTION = '--novp9_subsample_encryption';
+
+    const CLEAR_LEAD = '--clear_lead';
+
+    const PROTECTION_SYSTEMS = '--protection_systems';
+
+
+
+    //Widevine Encryption Options
+    const ENABLE_WIDEVINE_ENCRYPTION = '--enable_widevine_encryption';
+
+    const ENABLE_WIDEVINE_DECRYPTION = '--enable_widevine_decryption';
+
+    const KEY_SERVER_URL = '--key_server_url';
+
+    const CONTENT_ID = '--content_id';
+
+    const POLICY = '--policy';
+
+    const MAX_SD_PIXELS = '--max_sd_pixels';
+
+    const MAX_HD_PIXELS = '--max_hd_pixels';
+
+    const MAX_UHD1_PIXELS = '--max_uhd1_pixels';
+
+    const SIGNER = '--signer';
+
+    const AES_SIGNING_KEY = '--aes_signing_key';
+
+    const AES_SIGNING_IV = '--aes_signing_iv';
+
+    const RSA_SIGNING_KEY_PATH = '--rsa_signing_key_path';
+
+    const CRYPTO_PERIOD_DURATION = '--crypto_period_duration';
+
+    const GROUP_ID = '--group_id';
+
+
+    //PlayReady Encryption Options
+    const ENABLE_PLAYREADY_ENCRYPTION = '--enable_playready_encryption';
+
+    const PLAYREADY_SERVER_URL = '--playready_server_url';
+
+    const PROGRAM_IDENTIFIER = '--program_identifier';
+
+    const CA_FILE = '--ca_file';
+
+    const CLIENT_CERT_FILE = '--client_cert_file';
+
+    const CLIENT_CERT_PRIVATE_KEY_FILE = '--client_cert_private_key_file';
+
+    const CLIENT_CERT_PRIVATE_KEY_PASSWORD = '--client_cert_private_key_password';
+
+
+    //Raw Encryption Options
+    const ENABLE_RAW_KEY_ENCRYPTION = '--enable_raw_key_encryption';
+
+    const ENABLE_RAW_KEY_DECRYPTION = '--enable_raw_key_decryption';
+
+    const KEYS = '--keys';
+
+    const IV = '--iv';
+
+    const PSSH = '--pssh';
+
+
     //AdInsertion Option
     const AD_CUES = '--ad_cues';
 }

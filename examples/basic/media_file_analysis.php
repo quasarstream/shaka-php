@@ -13,7 +13,7 @@ use Shaka\Options\Streams\Stream;
 require_once '../init.require.php';
 
 $export = \Shaka\Shaka::initialize()
-    ->streams(Stream::input($base_path . 'test.mp4'))
+    ->streams(Stream::input($h264_baseline_360p))
     ->mediaFileAnalysis()
     ->export();
 

@@ -13,6 +13,7 @@
 namespace Shaka\Media;
 
 
+use Shaka\Exception\MediaException;
 use Shaka\Options\DASH;
 use Shaka\Options\DRM\Encryption;
 use Shaka\Options\HLS;
@@ -20,11 +21,26 @@ use Shaka\Options\HLS;
 class Media extends ExportMedia implements MediaInterface
 {
     /**
-     * @param Encryption $drm
+     * @param string $encryption
+     * @param callable|null $options
      * @return Media
+     * @throws MediaException
      */
-    public function DRM(Encryption $drm)
+    public function DRM(string $encryption, callable $options = null)
     {
+        $class_name = '\Shaka\Options\DRM\\' . ucwords($encryption);
+
+        if(!class_exists($class_name)){
+            throw new MediaException('There is no encryption class related to this string!');
+        }
+
+        $drm = new $class_name();
+        $drm = $drm->enableEncryption();
+
+        if(is_callable($options)) {
+            $drm = $options($drm);
+        }
+
         $this->drm = $drm;
         return $this;
     }

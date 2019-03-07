@@ -32,8 +32,9 @@ interface MediaInterface
     public function HLS(string $output, callable $options = null);
 
     /**
-     * @param Encryption $drm
-     * @return $this
+     * @param string $encryption
+     * @param callable|null $options
+     * @return Media
      */
-    public function DRM(Encryption $drm);
+    public function DRM(string $encryption, callable $options = null);
 }

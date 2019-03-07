@@ -43,7 +43,9 @@ $stream6 = DASHStream::input($h264_high_1080p)
 $export = \Shaka\Shaka::initialize()
     ->streams($stream1, $stream2, $stream3, $stream4, $stream5, $stream6)
     ->mediaPackaging()
-    ->DASH($output_path . 'h264.mpd')
+    ->DASH($output_path . 'h264.mpd', function ($options){
+        return $options->adCues('600;1800;3000');
+    })
     ->export();
 
 echo $export;

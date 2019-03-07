@@ -17,4 +17,11 @@ if(!is_file($autoload_path)){
 
 require_once $autoload_path;
 
-$base_path = 'the/path/to/the/source/directory/';
+$input_path = 'c:\test\\'; //'the/path/to/the/source/directory/'
+$output_path = 'c:\test\\'; //'the/path/to/the/destination/directory/'
+
+$input_text = $input_path . 'test.vtt';
+$h264_baseline_360p = $input_path . 'test.mp4';
+$h264_main_480p = $input_path . 'test2.mp4';
+$h264_main_720p = $input_path . 'test3.mp4';
+$h264_high_1080p = $input_path . 'test4.mp4';

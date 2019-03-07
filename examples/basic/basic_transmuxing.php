@@ -16,13 +16,13 @@ use Shaka\Options\Streams\Stream;
 
 require_once '../init.require.php';
 
-$stream1 = Stream::input($base_path . 'test.mp4')
+$stream1 = Stream::input($h264_baseline_360p)
     ->streamSelector('video')
-    ->output($base_path . 'video.mp4');
+    ->output($output_path . 'video.mp4');
 
-$stream2 = Stream::input($base_path . 'test.mp4')
+$stream2 = Stream::input($h264_baseline_360p)
     ->streamSelector('audio')
-    ->output($base_path . 'audio.mp4');
+    ->output($output_path . 'audio.mp4');
 
 $export = \Shaka\Shaka::initialize()
     ->streams($stream1, $stream2)
