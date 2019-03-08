@@ -2,7 +2,9 @@
     "name": "aminyazdanpanah/php-shaka",
     "type": "library",
     "description": "",
-    "keywords": [""],
+    "keywords": [
+        ""
+    ],
     "license": "MIT",
     "authors": [
         {
@@ -13,15 +15,17 @@
     ],
     "require": {
         "php": "^7.1",
-        "symfony/process": "^4.2",
-        "ext-json": "*"
+        "symfony/process": "^4.2"
     },
     "require-dev": {
         "phpunit/phpunit": "^7.5"
     },
     "autoload": {
+        "files": [
+            "src/helpers.php"
+        ],
         "psr-4": {
-        "Shaka\\": "src"
+            "Shaka\\": "src"
         }
     },
     "autoload-dev": {
