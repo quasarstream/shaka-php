@@ -1,0 +1,18 @@
+[
+  "--enable_raw_key_encryption",
+  "--enable_raw_key_decryption",
+  "--keys",
+  "whatever",
+  "--iv",
+  "whatever",
+  "--pssh",
+  "whatever",
+  "--vp9_subsample_encryption",
+  "--novp9_subsample_encryption",
+  "--protection_scheme",
+  "whatever",
+  "--clear_lead",
+  "whatever",
+  "--protection_systems",
+  "whatever"
+]

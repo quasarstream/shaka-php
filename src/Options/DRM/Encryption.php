@@ -142,6 +142,4 @@ class Encryption extends ExportOptions
         $this->protection_systems = $protection_systems;
         return $this;
     }
-    
-    
 }

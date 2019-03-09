@@ -1,0 +1,12 @@
+{
+  "type": "Audio",
+  "codec_string": "mp4a.40.2",
+  "time_scale": "44100",
+  "duration": "2519040 (57.1 seconds)",
+  "is_encrypted": "false",
+  "codec": "AAC",
+  "sample_bits": "16",
+  "num_channels": "1",
+  "sampling_frequency": "44100",
+  "language": "und"
+}

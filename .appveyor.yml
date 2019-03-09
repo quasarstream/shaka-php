@@ -16,9 +16,10 @@ environment:
     COMPOSER_NO_INTERACTION: 1
     ANSICON: 121x90 (121x90) # Console colors
 
+  shaka_packager_download: https://github.com/google/shaka-packager/releases/download/v2.3.0/packager-win.exe
+
   matrix:
     - PHP_VERSION: 7.1
-
     - PHP_VERSION: 7.2
 
 init:
@@ -27,7 +28,12 @@ init:
 install:
   - ps: Set-Service wuauserv -StartupType Manual # Chocolatey will try to install Windows updates when installing PHP.
   - ps: appveyor-retry cinst --no-progress --params '""/InstallDir:c:\tools\php""' -y php --version ((choco search php --exact --all-versions -r | select-string -pattern $env:PHP_VERSION | sort { [version]($_ -split '\|' | select -last 1) } -Descending | Select-Object -first 1) -replace '[php|]','')
+  - ps: Start-FileDownload $env:shaka_packager_download
 
+  - ren packager-win.exe packager.exe
+  - mkdir shaka
+  - move packager.exe shaka
+  - PATH=%PATH%;%cd%\shaka
   - cd c:\tools\php
   - copy php.ini-production php.ini /Y
   - echo date.timezone="UTC" >> php.ini
@@ -43,4 +49,5 @@ install:
 
 test_script:
   - cd c:\projects\project-code
+  - packager --version
   - vendor\bin\phpunit tests

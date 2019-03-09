@@ -41,9 +41,11 @@ class StreamCollection implements \Countable, \IteratorAggregate
      */
     public function audios()
     {
-        return array_filter($this->streams, function (Stream $stream) {
+        $audios = array_filter($this->streams, function (Stream $stream) {
             return $stream->isAudio();
         });
+
+        return array_values($audios);
     }
 
     /**
@@ -51,9 +53,11 @@ class StreamCollection implements \Countable, \IteratorAggregate
      */
     public function videos()
     {
-        return array_filter($this->streams, function (Stream $stream) {
+        $videos =  array_filter($this->streams, function (Stream $stream) {
             return $stream->isVideo();
         });
+
+        return array_values($videos);
     }
 
     /**

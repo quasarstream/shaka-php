@@ -1,0 +1,1 @@
+in=DIRECTORY_PATH/h264_baseline_360p.mp4,hls_name=whatever,hls_group_id=whatever,playlist_name=whatever,iframe_playlist_name=whatever,charcs=whatever,skip_encryption=whatever,drm_label=whatever,stream=whatever,out=whatever,init_segment=whatever,segment_template=whatever,bw=whatever,lang=whatever,format=whatever,tpf=whatever

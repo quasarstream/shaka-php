@@ -1,0 +1,13 @@
+{
+  "type": "Video",
+  "codec_string": "avc1.4d401e",
+  "time_scale": "15360",
+  "duration": "875110 (57.0 seconds)",
+  "is_encrypted": "false",
+  "codec": "H264",
+  "width": "640",
+  "height": "360",
+  "pixel_aspect_ratio": "1:1",
+  "trick_play_factor": "0",
+  "nalu_length_size": "4"
+}

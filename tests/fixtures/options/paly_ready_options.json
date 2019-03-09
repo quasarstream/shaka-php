@@ -1,0 +1,23 @@
+[
+  "--enable_playready_encryption",
+  "--playready_server_url",
+  "whatever",
+  "--program_identifier",
+  "whatever",
+  "--ca_file",
+  "whatever",
+  "--client_cert_file",
+  "whatever",
+  "--client_cert_private_key_file",
+  "whatever",
+  "--client_cert_private_key_password",
+  "whatever",
+  "--vp9_subsample_encryption",
+  "--novp9_subsample_encryption",
+  "--protection_scheme",
+  "whatever",
+  "--clear_lead",
+  "whatever",
+  "--protection_systems",
+  "whatever"
+]

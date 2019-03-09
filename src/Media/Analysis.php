@@ -19,6 +19,9 @@ use Shaka\Media\AnalysisStream\StreamCollection;
 
 class Analysis extends ExportMedia
 {
+
+    protected $analyse = true;
+
     /**
      * @return mixed
      * @throws StreamException
@@ -26,7 +29,6 @@ class Analysis extends ExportMedia
      */
     public function export(): StreamCollection
     {
-        $this->analyse = true;
         return $this->parseData();
     }
 
