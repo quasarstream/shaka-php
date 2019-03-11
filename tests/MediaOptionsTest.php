@@ -109,7 +109,7 @@ class MediaOptionsTest extends TestCase
         $output = (new PlayReady())->enableEncryption()
             ->playreadyServerUrl('whatever')
             ->programIdentifier('whatever')
-            ->cFile('whatever')
+            ->caFile('whatever')
             ->clientCertFile('whatever')
             ->clientCertPrivateKeyFile('whatever')
             ->clientCertPrivateKeyPassword('whatever')
