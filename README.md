@@ -31,7 +31,7 @@ There are several ways you can get Shaka Packager.
 - Built from source, see [Build Instructions](https://google.github.io/shaka-packager/html/build_instructions.html) for details.
 
 
-For users that get prebuilt binary: Please rename `packager-'OS'` to `packager` and add the path of shaka packager to your system PATH.(e.g. 'packager-win.exe' to 'packager.exe')
+For users who get prebuilt binary: Please rename `packager-'OS'` to `packager` and add the path of shaka packager to your system PATH.(e.g. 'packager-win.exe' to 'packager.exe')
 
 ### Installing Package
 
@@ -76,9 +76,9 @@ $stream1->streamSelector('video')
         ->output('video.mp4');
 ```
 
-##### All possible options of stream:
+##### Stream Options
 
-|           option    	        |           default             |                                                       mean                         	                                |
+|           Option    	        |           Default             |                                                       Mean                         	                                |
 |:-----------------------------:|:-----------------------------:|:---------------------------------------------------------------------------------------------------------------------:|
 |       streamSelector()        |           NULL                |        Required field with value ‘audio’, ‘video’, ‘text’ or stream number (zero based).                              |
 |       output()                |           NULL                |         Required output file path (single file).                                                                      |
@@ -116,13 +116,98 @@ $export = $shaka->streams($stream1, $stream2)
 ```
 
 ### DASH
+[Dynamic Adaptive Streaming over HTTP](https://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP) (DASH) is an adaptive bitrate streaming technique that enables high quality streaming of media content over HTTP.
+
+#### Dash Stream Options
+Besides [Stream Options](#stream-options) and [DRM Options](#drm-options), you can add `DASHRoles()` method to your DASHStream object. You can pass roles to the method. The roles can be separated by colon or semi-colon. The value should be one of: caption, subtitle, main, alternate, supplementary, commentary and dub. See [DASH (ISO/IEC 23009-1)](https://www.iso.org/standard/65274.html) specification for details.  
+
+``` php
+$stream1 = $stream1 = DASHStream::input('/the/path/to/the/file')
+                        //->other options
+```
 
 
+#### DASH Packaging
+This library supports DASH content packaging.
+``` php
+$export = $shaka->streams($stream1, $stream2, ...)
+    ->mediaPackaging()
+    ->DASH('output.mpd')
+    ->export();
+```
 
 
+You can add options to your dash using a callback method:
+
+``` php
+$export = $shaka->streams($stream1, $stream2, ...)
+    ->mediaPackaging()
+    ->DASH('output.mpd', function ($options) {
+        return $options->generateStaticMpd();
+            //->other options;
+    })
+    ->export();
+```
+
+#### DASH Options
+|           Option    	                           |           Default             |                                                       Mean                         	                                |
+|:------------------------------------------------:|:-----------------------------:|:---------------------------------------------------------------------------------------------------------------------:|
+|       generateStaticMpd()                        |           FALSE               |        If enabled, generates static mpd. If segment_template is specified in stream descriptors, shaka-packager generates dynamic mpd by default; if this flag is enabled, shaka-packager generates static mpd instead. Note that if segment_template is not specified, shaka-packager always generates static mpd regardless of the value of this flag.                              |
+|       baseUrls()                                 |           NULL                |        Comma separated BaseURLs for the MPD:
+                                                                                            <url>[,<url>]….
+                                                                                            The values will be added as <BaseURL> element(s) immediately under the <MPD> element.                                                                      |
+|       minBufferTime()                            |           NULL                |          	Specifies, in seconds, a common duration used in the definition of the MPD Representation data rate.                               	|
+|       minimumUpdatePeriod()                      |           NULL                |           Indicates to the player how often to refresh the media presentation description in seconds. This value is used for dynamic MPD only.                    	|
+|       suggestedPresentationDelay()               |           NULL                |          Specifies a delay, in seconds, to be added to the media presentation time. This value is used for dynamic MPD only.                    	|
+|       timeShiftBufferDepth()        	           |           NULL                |          Guaranteed duration of the time shifting buffer for dynamic media presentations, in seconds.                    	|
+|       preservedSegmentsOutsideLiveWindow()       |           NULL                |          Segments outside the live window (defined by time_shift_buffer_depth above) are automatically removed except for the most recent X segments defined by this parameter. This is needed to accommodate latencies in various stages of content serving pipeline, so that the segments stay accessible as they may still be accessed by the player.
+                                                                                              The segments are not removed if the value is zero.                            	|
+|       utcTimings()                               |           NULL                |          Comma separated UTCTiming schemeIdUri and value pairs for the MPD:
+                                                                                              <scheme_id_uri>=<value>[,<scheme_id_uri>=<value>]…
+                                                                                              This value is used for dynamic MPD only.                            	|
+|       defaultLanguage()                          |           NULL                |          Any audio/text tracks tagged with this language will have <Role … value=”main” /> in the manifest. This allows the player to choose the correct default language for the content.
+                                                                                              
+                                                                                              This applies to both audio and text tracks. The default language for text tracks can be overriden by ‘default_text_language’.                            	|
+|       defaultTextLanguage()                      |           NULL                |          	Same as above, but this applies to text tracks only, and overrides the default language for text tracks.                            	|
+|       allowApproximateSegmentTimeline()          |           NULL                |          For live profile only.
+                                                                                              
+                                                                                              If enabled, segments with close duration (i.e. with difference less than one sample) are considered to have the same duration. This enables MPD generator to generate less SegmentTimeline entries. If all segments are of the same duration except the last one, we will do further optimization to use SegmentTemplate@duration instead and omit SegmentTimeline completely.
+                                                                                              
+                                                                                              Ignored if $Time$ is used in segment template, since $Time$ requires accurate Segment Timeline.                            	|
+
+#### Chunking options and MP4 output options
+Also you can add `Chunking options` and `MP4 output options` to your DASH Object:
 
 
+|           Option    	                           |           Default             |                                                       Mean                         	                                |
+|:------------------------------------------------:|:-----------------------------:|:---------------------------------------------------------------------------------------------------------------------:|
+|       Mp4IncludePsshInStream()                   |           NULL                |        	MP4 only: include pssh in the encrypted stream. Default enabled.                              |
+|       generateSidxInMediaSegments()              |           NULL                |         For MP4 with DASH live profile only: Indicates whether to generate ‘sidx’ box in media segments. Note that it is reuqired by spec if segment template contains $Time$ specifier.                                                                      |
+|       nogenerateSidxInMediaSegments()            |           NULL                |          	For MP4 with DASH live profile only: Indicates whether to generate ‘sidx’ box in media segments. Note that it is reuqired by spec if segment template contains $Time$ specifier.                               	|
+|       transportStreamTimestampOffsetMs()         |           100ms                |           	Transport stream only (MPEG2-TS, HLS Packed Audio): A positive value, in milliseconds, by which output timestamps are offset to compensate for possible negative timestamps in the input. For example, timestamps from ISO-BMFF after adjusted by EditList could be negative. In transport streams, timestamps are not allowed to be less than zero.                    	|
+|       segmentDuration()                          |           NULL                |          Segment duration in seconds. If single_segment is specified, this parameter sets the duration of a subsegment; otherwise, this parameter sets the duration of a segment. Actual segment durations may not be exactly as requested.                    	|
+|       fragmentDuration()                         |           NULL                |          Fragment duration in seconds. Should not be larger than the segment duration. Actual fragment durations may not be exactly as requested.                            	|
+|       segmentSapAligned()        	               |           FALSE               |          Force segments to begin with stream access points. Default enabled.                    	|
+|       fragmentSapAligned()                       |           FALSE               |          Force fragments to begin with stream access points. This flag implies segment_sap_aligned. Default enabled.                            	|
 
+
+#### Segment Template Formatting
+The implementation is based on Template-based Segment URL construction described in ISO/IEC 23009-1:2014.
+
+
+|           $<Identifier>$                         |           Substitution parameter                                                         |                                                       Format                         	                                |
+|:------------------------------------------------:|:----------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------------------------------------:|
+|       $$                                         |           is an escape sequence, i.e. “$$” is replaced with a single “$”.                |        	Not applicable.                              |
+|       $Number$                                   |           This identifier is substitued with the number of the corresponding Segment.    |         The format tag may be present.
+                                                                                                                                                        
+                                                                                                                                                        If no format tag is present, a default format tag with width=1 shall be used.                                          |
+|       $Time$                                     |           This identifier is substituted with the value of the SegmentTimeline@t attribute for the Segment being accessed. Either $Number$ or $Time$ may be used but not both at the same time.                |          	The format tag may be present.
+                                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                If no format tag is present, a default format tag with width=1 shall be used.                               	|
+
+
+#### DASH Examples
+Please see [examples](/examples) for details.
 
 
 
