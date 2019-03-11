@@ -47,7 +47,7 @@ class AnalysisTest extends TestCase
         $expected = str_replace("DIRECTORY_PATH", $this->src_dir, file_get_contents(__DIR__ . "/fixtures/streams/show_streams.raw"));
 
         //just for appveyor build
-        $expected = str_replace("\r\n","\n", $expected);
+        $output = str_replace("\r\n",PHP_EOL, $output);
 
         $this->assertEquals($expected, $output);
     }
