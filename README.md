@@ -1,4 +1,7 @@
 # Shaka PHP
+[![Build Status](https://travis-ci.org/aminyazdanpanah/shaka-php.svg?branch=master)](https://travis-ci.org/aminyazdanpanah/shaka-php)
+[![Build status](https://img.shields.io/appveyor/ci/aminyazdanpanah/shaka-php/master.svg?style=flat-square&logo=appveyor)](https://ci.appveyor.com/project/aminyazdanpanah/shaka-php)
+
 Shaka PHP is a library that uses [Shaka Packager](https://github.com/google/shaka-packager) for DASH and HLS packaging and encryption, supporting Common Encryption for Widevine and other DRM Systems.
 
 - [Installation](#installation)

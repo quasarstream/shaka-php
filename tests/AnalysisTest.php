@@ -45,6 +45,7 @@ class AnalysisTest extends TestCase
     {
         $output = (string)$this->getAnalysis();
         $expected = str_replace("DIRECTORY_PATH", $this->src_dir, file_get_contents(__DIR__ . "/fixtures/streams/show_streams.raw"));
+        $expected = str_replace("\r\n",PHP_EOL, $expected);
 
         $this->assertEquals($expected, $output);
     }
