@@ -120,7 +120,7 @@ class PlayReady extends Encryption
      * @param string $ca_file
      * @return PlayReady
      */
-    public function cFile(string $ca_file): PlayReady
+    public function caFile(string $ca_file): PlayReady
     {
         $this->ca_file = $ca_file;
         return $this;

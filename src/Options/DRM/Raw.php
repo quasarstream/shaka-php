@@ -70,7 +70,7 @@ class Raw extends Encryption
      * @param bool $enable_raw_key_decryption
      * @return Raw
      */
-    public function EnableRawKeyDecryption(bool $enable_raw_key_decryption = true): Raw
+    public function enableRawKeyDecryption(bool $enable_raw_key_decryption = true): Raw
     {
         $this->enable_raw_key_decryption = $enable_raw_key_decryption;
         return $this;
