@@ -1,9 +1,9 @@
 {
     "name": "aminyazdanpanah/php-shaka",
     "type": "library",
-    "description": "",
+    "description": "Shaka PHP is a library that uses Shaka Packager for DASH and HLS packaging and encryption, supporting Common Encryption for Widevine and other DRM Systems.",
     "keywords": [
-        ""
+        "google", "dash", "hls", "video", "php", "mpeg-dash", "laravel-package", "laravel", "shaka", "packager", "live", "drm", "widevine", "palyready", "raw-key"
     ],
     "license": "MIT",
     "authors": [

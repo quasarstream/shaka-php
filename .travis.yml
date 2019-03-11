@@ -23,10 +23,14 @@ matrix:
 before_install:
   - sudo add-apt-repository ppa:mc3man/trusty-media -y
   - sudo apt-get update -q
+  - sudo wget https://github.com/google/shaka-packager/releases/download/v2.3.0/packager-linux
+  - sudo chmod +x packager-linux
+  - sudo mv packager-linux /bin/packager
   - composer self-update
 
 install:
   - composer update
 
 script:
+  - packager -version
   - vendor/bin/phpunit tests

@@ -14,6 +14,7 @@ Shaka PHP is a library that uses [Shaka Packager](https://github.com/google/shak
     - [PlayReady Key Server](#playready-key-server)
     - [Raw Key](#raw-key-server)
   - [Ad Insertion](#ad-insertion)
+- [Several Open Source Players](#several-open-source-players)
 - [Contributing](#contributing)
 - [Security](#security)
 - [Credits](#credits)
@@ -41,20 +42,22 @@ Use [Composer](https://getcomposer.org) to install this library from Packagist:
 Run the following command from your project directory to add the dependency:
 
 ``` sh
-composer 
+composer require aminyazdanpanah/php-shaka
 ```
 
 Alternatively, add the dependency directly to your `composer.json` file:
 
 ``` json
 "require": {
-    "": "^"
+    "aminyazdanpanah/php-shaka": "^1.0"
 }
 ```
 
 ## Usage
 The best way to learn how to use this library is to review the [examples](/examples) and browse the source code as it is self-documented.
 
+It is **highly recommended** to read [Shaka Packager Documentation](https://google.github.io/shaka-packager/html/index.html).
+ 
 ### Basic Usage
 #### Initializing
 Shaka PHP detects `packager` binary, but you can explicitly give the binary path to the `initialize` method:
@@ -90,7 +93,7 @@ $stream1->streamSelector('video')
 |       trickPlayFactor()       |           0                   |          Optional value which specifies the trick play, a.k.a. trick mode, stream sampling rate among key frames. If specified, the output is a trick play stream.                            	|
 
 
-#### Media file analysis
+#### Media File Analysis
 It can be used to inspect the content of a media file and dump basic stream information:
 ``` php
 $export = $shaka->streams($stream)
@@ -99,7 +102,7 @@ $export = $shaka->streams($stream)
 ```
 The `$export` is instance of `StreamCollection`. For more information, please see [examples](/examples).
 
-#### Basic transmuxing
+#### Basic Transmuxing
 It can be used to extract streams, optionally transmuxes the streams from one container format to another container format.
 ``` php
 $stream1 = Stream::input('/the/path/to/the/file')
@@ -313,9 +316,9 @@ Besides [Stream Options](#stream-options), you can add options below:
 
 ### General encryption options
 
-|           Option    	                           |           Default             |                                                       Explanation                         	                                |
+|           Option    	                           |           Default             |                                                       Explanation                         	                           |
 |:------------------------------------------------:|:-----------------------------:|:---------------------------------------------------------------------------------------------------------------------:|
-|       protectionScheme()                         |           NULL                |       Specify a protection scheme, ‘cenc’ or ‘cbc1’ or pattern-based protection schemes ‘cens’ or ‘cbcs’.    |
+|       protectionScheme()                         |           NULL                |       Specify a protection scheme, ‘cenc’ or ‘cbc1’ or pattern-based protection schemes ‘cens’ or ‘cbcs’.             |
 |       vp9SubsampleEncryption()                   |           TRUE                |        Enable / disable VP9 subsample encryption    |
 |       novp9SubsampleEncryption()                 |           FALSE               |        Enable / disable VP9 subsample encryption  |
 |       clearLead()                                |           NULL                |         Clear lead in seconds if encryption is enabled.  |
@@ -344,7 +347,7 @@ $export = $shaka->streams($stream1, $stream2, ...)
 #### Widevine Options
 Besides [General encryption options](#general-encryption-options), you can add options below:
 
-|           Option    	                           |           Default             |                                                       Explanation                         	                                |
+|           Option    	                           |           Default             |                                                       Explanation                         	                           |
 |:------------------------------------------------:|:-----------------------------:|:---------------------------------------------------------------------------------------------------------------------:|
 |       enableWidevineDecryption()                 |           FALSE               |         Enable decryption  with Widevine key server. User should provide either AES signing key (`aesSigningKey()`, `aesSigningIv()`) or RSA signing key (`rsaSigningKeyPath()`).    |
 |       keyServerUrl()                             |           NULL                |         Key server url. Required for Widevine encryption and decryption.    |
@@ -445,6 +448,13 @@ $export = $shaka->streams($stream1, $stream2, ...)
 
 #### Ad Insertion Examples
 Please see [examples/adInsertion](/examples/adInsertion) for details.
+
+## Several Open Source Players
+  - [DASH and HLS on Web: Shaka Player](https://github.com/google/shaka-player)
+  - [DASH on Web: dash.js](https://github.com/Dash-Industry-Forum/dash.js)
+  - [HLS on Web: hls.js](https://github.com/video-dev/hls.js)
+  - [DASH and HLS on Android: ExoPlayer](https://github.com/google/ExoPlayer)
+
 
 ## Contributing
 
