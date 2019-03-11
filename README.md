@@ -280,6 +280,7 @@ UDP file is of the form:
 ``` text 
 udp://<ip>:<port>[?<option>[&<option>]...]
 ```
+
 |           Option    	                           |                                                       Explanation                         	                                |
 |:------------------------------------------------:|:---------------------------------------------------------------------------------------------------------------------:|
 |       buffer_size                                |        UDP maximum receive buffer size in bytes. Note that although it can be set to any value, the actual value is capped by maximum allowed size defined by the underlying operating system. On linux, the maximum size allowed can be retrieved using sysctl net.core.rmem_max and configured using sysctl -w net.core.rmem_max=<size_in_bytes>.           |
@@ -311,6 +312,7 @@ Besides [Stream Options](#stream-options), you can add options below:
 |       drmLabel()                                 |           NULL                |         Optional value for custom DRM label, which defines the encryption key applied to the stream. Typically values include AUDIO, SD, HD, UHD1, UHD2. For raw key, it should be a label defined in –keys. If not provided, the DRM label is derived from stream type (video, audio), resolutions, etc. Note that it is case sensitive.  |
 
 ### General encryption options
+
 |           Option    	                           |           Default             |                                                       Explanation                         	                                |
 |:------------------------------------------------:|:-----------------------------:|:---------------------------------------------------------------------------------------------------------------------:|
 |       protectionScheme()                         |           NULL                |       Specify a protection scheme, ‘cenc’ or ‘cbc1’ or pattern-based protection schemes ‘cens’ or ‘cbcs’.    |
@@ -341,6 +343,7 @@ $export = $shaka->streams($stream1, $stream2, ...)
 
 #### Widevine Options
 Besides [General encryption options](#general-encryption-options), you can add options below:
+
 |           Option    	                           |           Default             |                                                       Explanation                         	                                |
 |:------------------------------------------------:|:-----------------------------:|:---------------------------------------------------------------------------------------------------------------------:|
 |       enableWidevineDecryption()                 |           FALSE               |         Enable decryption  with Widevine key server. User should provide either AES signing key (`aesSigningKey()`, `aesSigningIv()`) or RSA signing key (`rsaSigningKeyPath()`).    |
@@ -379,6 +382,7 @@ $export = $shaka->streams($stream1, $stream2, ...)
 
 #### PlayReady Options
 Besides [General encryption options](#general-encryption-options), you can add options below:
+
 |           Option    	                           |           Default             |                                                       Explanation                         	                                |
 |:------------------------------------------------:|:-----------------------------:|:---------------------------------------------------------------------------------------------------------------------:|
 |       playreadyServerUrl()                       |           NULL                |         PlayReady packaging server url.    |
@@ -407,6 +411,7 @@ $export = $shaka->streams($stream1, $stream2, ...)
 
 #### Raw Options
 Besides [General encryption options](#general-encryption-options), you can add options below:
+
 |           Option    	                           |           Default             |                                                       Explanation                         	                                |
 |:------------------------------------------------:|:-----------------------------:|:---------------------------------------------------------------------------------------------------------------------:|
 |       enableRawKeyDecryption()                   |           FALSE               |         Enable decryption with raw key (keys provided in command line).    |
