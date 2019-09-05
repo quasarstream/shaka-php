@@ -1,10 +1,10 @@
 <?php
 
 /**
-=========================================================
-DASH Live
-=========================================================
-The example is similar to the on-demand, see DASH example.
+ * =========================================================
+ * DASH Live
+ * =========================================================
+ * The example is similar to the on-demand, see DASH example.
 */
 
 use Shaka\Options\Streams\DASHStream;

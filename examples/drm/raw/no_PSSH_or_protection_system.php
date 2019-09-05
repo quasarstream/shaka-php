@@ -1,10 +1,10 @@
 <?php
 
 /**
-=========================================================
-Common PSSH is generated if no PSSH or protection system flag is specified
-=========================================================
-The example below use the H264 streams created in Media Encoding.
+ * =========================================================
+ * Common PSSH is generated if no PSSH or protection system flag is specified
+ * =========================================================
+ * The example below use the H264 streams created in Media Encoding.
 */
 
 use Shaka\Options\Streams\DRMStream;

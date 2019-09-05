@@ -4,9 +4,9 @@
 
 Shaka PHP is a library that uses [Shaka Packager](https://github.com/google/shaka-packager) for DASH and HLS packaging and encryption, supporting Common Encryption for Widevine and other DRM Systems.
 
+**Contents**
+- [Requirements](#requirements)
 - [Installation](#installation)
-  - [Getting Shaka Packager](#getting-shaka-packager)
-  - [Installing Package](#installing-package)
 - [Usage](#usage)
   - [Basic Usage](#basic-usage)
   - [DASH](#dash)
@@ -18,29 +18,27 @@ Shaka PHP is a library that uses [Shaka Packager](https://github.com/google/shak
     - [Raw Key](#raw-key-server)
   - [Ad Insertion](#ad-insertion)
 - [Several Open Source Players](#several-open-source-players)
-- [Contributing](#contributing)
-- [Security](#security)
+- [Contributing and Reporting Bugs](#contributing-and-reporting-bugs)
 - [Credits](#credits)
 - [License](#license)
 
-## Installation
-This library requires a working Shaka Packager binary. Be that the binary can be located with system PATH to auto get binary file in PHP.
-Also you can give the binary path on load.
+## Requirements
+1. This version of the package is only compatible with PHP 7.2 or higher.
+
+2. This library requires a working Shaka Packager binary. Be that the binary can be located with system PATH to auto get binary file in PHP.
+You can also give the binary path on load.
 
 ### Getting Shaka Packager
 There are several ways you can get Shaka Packager.
-
-- Using [Docker](https://www.docker.com/whatisdocker). Instructions are available at [Using Docker](https://google.github.io/shaka-packager/html/docker_instructions.html).
-- Get prebuilt binaries from [release](https://github.com/google/shaka-packager/releases).
-- Built from source, see [Build Instructions](https://google.github.io/shaka-packager/html/build_instructions.html) for details.
-
+- Using **[Docker](https://www.docker.com/whatisdocker)**. Instructions are available at **[Using Docker](https://google.github.io/shaka-packager/html/docker_instructions.html)**.
+- Get prebuilt binaries from **[release](https://github.com/google/shaka-packager/releases)**.
+- Built from source, see **[Build Instructions](https://google.github.io/shaka-packager/html/build_instructions.html)** for details.
 
 For users who get prebuilt binary: Please rename `packager-'OS'` to `packager` and add the path of shaka packager to your system PATH.(e.g. 'packager-win.exe' to 'packager.exe')
 
-### Installing Package
 
-Use [Composer](https://getcomposer.org) to install this library from Packagist:
-[``](https://packagist.org/packages/google/recaptcha)
+## Installation
+Use **[Composer](https://getcomposer.org)** to install this library from Packagist:
 
 Run the following command from your project directory to add the dependency:
 
@@ -57,9 +55,9 @@ Alternatively, add the dependency directly to your `composer.json` file:
 ```
 
 ## Usage
-The best way to learn how to use this library is to review the [examples](/examples) and browse the source code as it is self-documented.
+The best way to learn how to use this library is to review the **[examples](/examples)** and browse the source code as it is self-documented.
 
-It is **highly recommended** to read [Shaka Packager Documentation](https://google.github.io/shaka-packager/html/index.html).
+It is **highly recommended** to read **[Shaka Packager Documentation](https://google.github.io/shaka-packager/html/index.html)**.
  
 ### Basic Usage
 #### Initializing
@@ -103,7 +101,7 @@ $export = $shaka->streams($stream)
     ->mediaFileAnalysis()
     ->export();
 ```
-The `$export` is instance of `StreamCollection`. For more information, please see [examples](/examples).
+The `$export` is instance of `StreamCollection`. For more information, please see **[examples](/examples)**.
 
 #### Basic Transmuxing
 It can be used to extract streams, optionally transmuxes the streams from one container format to another container format.
@@ -121,13 +119,13 @@ $export = $shaka->streams($stream1, $stream2)
             ->export();
 ```
 #### Basic Usage Examples
-Please see [examples/Basic](/examples/basic) for details.
+Please see **[examples/Basic](/examples/basic)** for details.
 
 ### DASH
-[Dynamic Adaptive Streaming over HTTP](http://dashif.org/) (DASH) is an adaptive bitrate streaming technique that enables high quality streaming of media content over HTTP.
+**[Dynamic Adaptive Streaming over HTTP](http://dashif.org/)** (DASH) is an adaptive bitrate streaming technique that enables high quality streaming of media content over HTTP.
 
 #### DASH Stream Options
-Besides [Stream Options](#stream-options) and [DRM Stream Options](#drm-stream-options), you can add `DASHRoles()` method to your DASHStream object. You can pass roles to the method. The roles can be separated by colon or semi-colon. The value should be one of: caption, subtitle, main, alternate, supplementary, commentary and dub. See [DASH (ISO/IEC 23009-1)](https://www.iso.org/standard/65274.html) specification for details.  
+Besides **[Stream Options](#stream-options)** and **[DRM Stream Options](#drm-stream-options)**, you can add `DASHRoles()` method to your DASHStream object. You can pass roles to the method. The roles can be separated by colon or semi-colon. The value should be one of: caption, subtitle, main, alternate, supplementary, commentary and dub. See **[DASH (ISO/IEC 23009-1)](https://www.iso.org/standard/65274.html)** specification for details.  
 
 ``` php
 $stream1 = $stream1 = DASHStream::input('/the/path/to/the/file')
@@ -200,16 +198,16 @@ The implementation is based on Template-based Segment URL construction described
 - **Note**: Identifiers $RepresentationID$ and $Bandwidth$ are not supported in this version. Please file an issue if you want it to be supported.
 
 #### DASH Examples
-Please see [examples/DASH](/examples/dash) for details.
+Please see **[examples/DASH](/examples/dash)** for details.
 
 
 
 
 ### HLS
-[HTTP Live Streaming](https://developer.apple.com/streaming/) (also known as HLS) is an HTTP-based media streaming communications protocol implemented by Apple Inc. as part of its QuickTime, Safari, OS X, and iOS software. It resembles MPEG-DASH in that it works by breaking the overall stream into a sequence of small HTTP-based file downloads, each download loading one short chunk of an overall potentially unbounded transport stream. As the stream is played, the client may select from a number of different alternate streams containing the same material encoded at a variety of data rates, allowing the streaming session to adapt to the available data rate. At the start of the streaming session, HLS downloads an extended M3U playlist containing the metadata for the various sub-streams which are available.
+**[HTTP Live Streaming](https://developer.apple.com/streaming/)** (also known as HLS) is an HTTP-based media streaming communications protocol implemented by Apple Inc. as part of its QuickTime, Safari, OS X, and iOS software. It resembles MPEG-DASH in that it works by breaking the overall stream into a sequence of small HTTP-based file downloads, each download loading one short chunk of an overall potentially unbounded transport stream. As the stream is played, the client may select from a number of different alternate streams containing the same material encoded at a variety of data rates, allowing the streaming session to adapt to the available data rate. At the start of the streaming session, HLS downloads an extended M3U playlist containing the metadata for the various sub-streams which are available.
 
 #### HLS Stream Options
-Besides [Stream Options](#stream-options) and [DRM Stream Options](#drm-stream-options), you can add options below:
+Besides **[Stream Options](#stream-options)** and **[DRM Stream Options](#drm-stream-options)**, you can add options below:
 
 |           Option    	                           |           Default             |                                                       Explanation                         	                                |
 |:------------------------------------------------:|:-----------------------------:|:---------------------------------------------------------------------------------------------------------------------:|
@@ -259,8 +257,8 @@ $export = $shaka->streams($stream1, $stream2, ...)
 |       defaultLanguage()                          |           NULL                |          Any audio/text tracks tagged with this language will have <Role … value=”main” /> in the manifest. This allows the player to choose the correct default language for the content. This applies to both audio and text tracks. The default language for text tracks can be overriden by ‘default_text_language’.                            	|
 |       defaultTextLanguage()                      |           NULL                |          	Same as above, but this applies to text tracks only, and overrides the default language for text tracks.                            	|
 
-Also you can add some [Chunking and MP4 output options](#chunking-and-mp4-output-options) to your HLS Object(before using these options, please read the `Explanation`).
- - **Note**: Also you can use [Segment template formatting](#segment-template-formatting) in your output.
+Also you can add some **[Chunking and MP4 output options](#chunking-and-mp4-output-options)** to your HLS Object(before using these options, please read the `Explanation`).
+ - **Note**: Also you can use **[Segment template formatting](#segment-template-formatting)** in your output.
 
 
  - **Note**: DASH and HLS options can both be specified to output DASH and HLS manifests at the same time. Note that it works only for MP4 outputs.
@@ -273,12 +271,12 @@ $export = $shaka->streams($stream1, $stream2, ...)
 ```
 
 #### HLS Examples
-Please see [examples/HLS](/examples/hls) for details.
+Please see **[examples/HLS](/examples/hls)** for details.
 
 ## Live
 A typical live source is UDP multicast, which is the only live protocol packager supports directly right now.
 
-For other unsupported protocols, you can use FFmpeg to pipe the input. See [FFmpeg piping](https://google.github.io/shaka-packager/html/tutorials/ffmpeg_piping.html) for details.
+For other unsupported protocols, you can use FFmpeg to pipe the input. See **[FFmpeg piping](https://google.github.io/shaka-packager/html/tutorials/ffmpeg_piping.html)** for details.
 
 
 ### UDP File Options
@@ -301,7 +299,7 @@ udp://<ip>:<port>[?<option>[&<option>]...]
 udp://224.1.2.30:88?interface=10.11.12.13&reuse=1
 ```
 #### HLS Examples
-Please see [examples/Live](/examples/live) for details.
+Please see **[examples/Live](/examples/live)** for details.
 
 
 ## DRM
@@ -310,7 +308,7 @@ Shaka Packager supports fetching encryption keys from Widevine Key Server and Pl
 Regardless of which key server you are using, you can instruct Shaka Packager to generate other protection systems in additional to the native protection system from the key server. This allows generating multi-DRM contents easily.
 
 ### DRM Stream options
-Besides [Stream Options](#stream-options), you can add options below:
+Besides **[Stream Options](#stream-options)**, you can add options below:
 
 |           Option    	                           |           Default             |                                                       Explanation                         	                                |
 |:------------------------------------------------:|:-----------------------------:|:---------------------------------------------------------------------------------------------------------------------:|
@@ -330,7 +328,7 @@ Besides [Stream Options](#stream-options), you can add options below:
 ### Widevine Key Server
 The easiest way to generate Widevine protected content is to use Widevine Cloud Service.
 
-Shaka Packager can talk to Widevine Cloud Service or any key server that implements [Common Encryption API for Widevine DRM](http://bit.ly/2vTG4oo) to fetch encryption keys.
+Shaka Packager can talk to Widevine Cloud Service or any key server that implements **[Common Encryption API for Widevine DRM](http://bit.ly/2vTG4oo)** to fetch encryption keys.
 
 Widevine Common Encryption API supports request validation using either AES or RSA.
 
@@ -339,7 +337,7 @@ Enable encryption with Widevine key server. User should provide either AES signi
 $export = $shaka->streams($stream1, $stream2, ...)
     ->mediaPackaging()
     ->DRM('widevine', function ($options) {
-        return $options->keyServerUrl('https://license.uat.widevine.com/cenc/getcontentkey/widevine_test')
+        return $options->keyServerUrl('https://license.uat.widevine.com/cenc/getcontentkey/widevine_test')**
             ->//other options
     })
     ->HLS('hls.m3u8')
@@ -348,7 +346,7 @@ $export = $shaka->streams($stream1, $stream2, ...)
 ```
 
 #### Widevine Options
-Besides [General encryption options](#general-encryption-options), you can add options below:
+Besides **[General encryption options](#general-encryption-options)**, you can add options below:
 
 |           Option    	                           |           Default             |                                                       Explanation                         	                           |
 |:------------------------------------------------:|:-----------------------------:|:---------------------------------------------------------------------------------------------------------------------:|
@@ -367,13 +365,13 @@ Besides [General encryption options](#general-encryption-options), you can add o
 |       groupId()                                  |           NULL                |         Identifier for a group of licenses.  |
 
 #### Widevine Examples
-Please see [examples/DRM/Widevine](/examples/drm/widevine) for details.
+Please see **[examples/DRM/Widevine](/examples/drm/widevine)** for details.
 
 
 ### PlayReady Key Server
-This library can talk to PlayReady Key Server that implements [AcquirePackagingData Web Method specification](http://bit.ly/2M9NuOt) to fetch encryption keys.
+This library can talk to PlayReady Key Server that implements **[AcquirePackagingData Web Method specification](http://bit.ly/2M9NuOt)** to fetch encryption keys.
 
-Refer to [DRM](https://google.github.io/shaka-packager/html/tutorials/drm.html) if you are interested in generating multi-DRM contents.
+Refer to **[DRM](https://google.github.io/shaka-packager/html/tutorials/drm.html)** if you are interested in generating multi-DRM contents.
 ``` php
 $export = $shaka->streams($stream1, $stream2, ...)
     ->mediaPackaging()
@@ -387,7 +385,7 @@ $export = $shaka->streams($stream1, $stream2, ...)
 ```
 
 #### PlayReady Options
-Besides [General encryption options](#general-encryption-options), you can add options below:
+Besides **[General encryption options](#general-encryption-options)**, you can add options below:
 
 |           Option    	                           |           Default             |                                                       Explanation                         	                                |
 |:------------------------------------------------:|:-----------------------------:|:---------------------------------------------------------------------------------------------------------------------:|
@@ -416,7 +414,7 @@ $export = $shaka->streams($stream1, $stream2, ...)
 ```
 
 #### Raw Options
-Besides [General encryption options](#general-encryption-options), you can add options below:
+Besides **[General encryption options](#general-encryption-options)**, you can add options below:
 
 |           Option    	                           |           Default             |                                                       Explanation                         	                                |
 |:------------------------------------------------:|:-----------------------------:|:---------------------------------------------------------------------------------------------------------------------:|
@@ -429,11 +427,11 @@ Besides [General encryption options](#general-encryption-options), you can add o
 https://github.com/google/shaka-packager/tree/master/packager/tools/pssh
 
 #### Raw Examples
-Please see [examples/DRM/Raw](/examples/drm/raw) for details.
+Please see **[examples/DRM/Raw](/examples/drm/raw)** for details.
 
 
 ## Ad Insertion
-This package does not do Ad Insertion directly, but it can precondition content for [Dynamic Ad Insertion](https://support.google.com/admanager/answer/7295798?hl=en) with Google Ad Manager.
+This package does not do Ad Insertion directly, but it can precondition content for **[Dynamic Ad Insertion](https://support.google.com/admanager/answer/7295798?hl=en)** with Google Ad Manager.
 
 Both DASH and HLS are supported.
 ``` php
@@ -450,32 +448,29 @@ $export = $shaka->streams($stream1, $stream2, ...)
 
 
 #### Ad Insertion Examples
-Please see [examples/adInsertion](/examples/adInsertion) for details.
+Please see **[examples/adInsertion](/examples/adInsertion)** for details.
 
 ## Several Open Source Players
-  - [DASH and HLS on Web: Shaka Player](https://github.com/google/shaka-player)
-  - [DASH on Web: dash.js](https://github.com/Dash-Industry-Forum/dash.js)
-  - [HLS on Web: hls.js](https://github.com/video-dev/hls.js)
-  - [DASH and HLS on Android: ExoPlayer](https://github.com/google/ExoPlayer)
+  - **[DASH and HLS on Web: Shaka Player](https://github.com/google/shaka-player)**
+  - **[DASH on Web: dash.js](https://github.com/Dash-Industry-Forum/dash.js)**
+  - **[HLS on Web: hls.js](https://github.com/video-dev/hls.js)**
+  - **[DASH and HLS on Android: ExoPlayer](https://github.com/google/ExoPlayer)**
 
 
-## Contributing
-
+## Contributing and Reporting Bugs
 I'd love your help in improving, correcting, adding to the specification.
-Please [file an issue](https://github.com/aminyazdanpanah/shaka-php/issues)
-or [submit a pull request](https://github.com/aminyazdanpanah/shaka-php/pulls).
+Please **[file an issue](https://github.com/aminyazdanpanah/shaka-php/issues)** or **[submit a pull request](https://github.com/aminyazdanpanah/shaka-php/pulls)**.
+- Please see **[Contributing File](https://github.com/aminyazdanpanah/shaka-php/blob/master/CONTRIBUTING.md)** for more information.
+- If you have any questions or you want to report a bug, please just **[file an issue](https://github.com/aminyazdanpanah/shaka-php/issues)**
+- If you discover a security vulnerability within this package, please see **[SECURITY File](https://github.com/aminyazdanpanah/shaka-php/blob/master/SECURITY.md)** for more information to help with that.
 
-Please see [Contributing File](https://github.com/aminyazdanpanah/shaka-php/blob/master/CONTRIBUTING.md) for more information.
+**NOTE:** If you have any questions about this package or FFmpeg, please **DO NOT** send an email to me or submit the contact form on my website. Emails related to these issues **will be ignored**.
 
-## Security
-
-If you discover a security vulnerability within this package, please send an e-mail to Amin Yazdanpanah via:
-contact [AT] aminyazdanpanah • com.
 ## Credits
 
-- [Amin Yazdanpanah](http://www.aminyazdanpanah.com/?u=github.com/aminyazdanpanah/shaka-php)
+- **[Amin Yazdanpanah](http://www.aminyazdanpanah.com/?u=github.com/aminyazdanpanah/shaka-php)**
 
 ## License
 
-The MIT License (MIT). Please see [License File](https://github.com/aminyazdanpanah/shaka-php/blob/master/LICENSE) for more information.
+The MIT License (MIT). Please see **[License File](https://github.com/aminyazdanpanah/shaka-php/blob/master/LICENSE)** for more information.
 

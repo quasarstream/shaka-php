@@ -1,11 +1,11 @@
 <?php
 
 /**
-=========================================================
-Single file MP4 output with DASH + HLS
-=========================================================
-The example below creates five single file MP4 streams,
-and HLS playlists as well as DASH manifests.
+ * =========================================================
+ * Single file MP4 output with DASH + HLS
+ * =========================================================
+ * The example below creates five single file MP4 streams,
+ * and HLS playlists as well as DASH manifests.
 */
 
 use Shaka\Options\Streams\HLSStream;

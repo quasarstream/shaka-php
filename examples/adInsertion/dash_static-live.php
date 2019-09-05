@@ -1,12 +1,12 @@
 <?php
 
 /**
-=========================================================
-static-live + ad
-=========================================================
-The example below creates five groups of segments
-(each with an init segment and a series of media segments)
-for the five streams and a manifest, which describes the streams.
+ * =========================================================
+ * static-live + ad
+ * =========================================================
+ * The example below creates five groups of segments
+ * (each with an init segment and a series of media segments)
+ * for the five streams and a manifest, which describes the streams.
 */
 
 use Shaka\Options\Streams\DASHStream;

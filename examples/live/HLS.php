@@ -1,10 +1,10 @@
 <?php
 
 /**
-=========================================================
-HLS Live
-=========================================================
-The example is similar to the on-demand, see HLS example.
+ * =========================================================
+ * HLS Live
+ * =========================================================
+ * The example is similar to the on-demand, see HLS example.
 */
 
 use Shaka\Options\Streams\HLSStream;

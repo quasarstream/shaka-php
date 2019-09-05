@@ -1,10 +1,10 @@
 <?php
 
 /**
-=========================================================
-‘cbcs’ protection scheme
-=========================================================
-The example below use the H264 streams created in Media Encoding.
+ * =========================================================
+ * ‘cbcs’ protection scheme
+ * =========================================================
+ * The example below use the H264 streams created in Media Encoding.
 */
 
 use Shaka\Options\Streams\Stream;

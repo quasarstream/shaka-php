@@ -1,11 +1,11 @@
 <?php
 
 /**
-=========================================================
-Media file analysis
-=========================================================
-Shaka Packager can be used to inspect the content of a
-media file and dump basic stream information
+ * =========================================================
+ * Media file analysis
+ * =========================================================
+ * Shaka Packager can be used to inspect the content of a
+ * media file and dump basic stream information
 */
 
 use Shaka\Options\Streams\Stream;

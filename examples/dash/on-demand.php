@@ -1,15 +1,15 @@
 <?php
 
 /**
-=========================================================
-on-demand
-=========================================================
-The example below uses the H264 streams created in Media Encoding.
-It can be applied to VP9 in the same way.
-
-The below example creates five single track fragmented mp4
-streams (4 video, 1 audio), a subtitle file and a manifest, which
-describes the streams.
+ * =========================================================
+ * on-demand
+ * =========================================================
+ * The example below uses the H264 streams created in Media Encoding.
+ * It can be applied to VP9 in the same way.
+ *
+ * The below example creates five single track fragmented mp4
+ * streams (4 video, 1 audio), a subtitle file and a manifest, which
+ * describes the streams.
 */
 
 use Shaka\Options\Streams\DASHStream;

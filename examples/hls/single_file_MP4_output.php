@@ -1,11 +1,11 @@
 <?php
 
 /**
-=========================================================
-Single file MP4 output
-=========================================================
-The example below creates five single file MP4
-streams and HLS playlists, which describe the streams
+ * =========================================================
+ * Single file MP4 output
+ * =========================================================
+ * The example below creates five single file MP4
+ * streams and HLS playlists, which describe the streams
 */
 
 use Shaka\Options\Streams\HLSStream;

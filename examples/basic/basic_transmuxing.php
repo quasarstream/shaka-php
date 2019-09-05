@@ -1,15 +1,15 @@
 <?php
 
 /**
-=========================================================
-Basic transmuxing
-=========================================================
-Shaka Packager can be used to extract streams, optionally
-transmuxes the streams from one container format to another
-container format.
-
-Here is a simple example that extracts video and audio from
-the input file
+ * =========================================================
+ * Basic transmuxing
+ * =========================================================
+ * Shaka Packager can be used to extract streams, optionally
+ * transmuxes the streams from one container format to another
+ * container format.
+ *
+ * Here is a simple example that extracts video and audio from
+ * the input file
 */
 
 use Shaka\Options\Streams\Stream;

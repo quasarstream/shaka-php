@@ -1,10 +1,10 @@
 <?php
 
 /**
-=========================================================
-multi-drm (Widevine and PlayReady)
-=========================================================
-The example below use the H264 streams created in Media Encoding.
+ * =========================================================
+ * multi-drm (Widevine and PlayReady)
+ * =========================================================
+ * The example below use the H264 streams created in Media Encoding.
  */
 
 use Shaka\Options\Streams\Stream;

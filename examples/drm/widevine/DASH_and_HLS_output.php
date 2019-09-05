@@ -1,10 +1,10 @@
 <?php
 
 /**
-=========================================================
-DASH and HLS output
-=========================================================
-The example below use the H264 streams created in Media Encoding.
+ * =========================================================
+ * DASH and HLS output
+ * =========================================================
+ * The example below use the H264 streams created in Media Encoding.
  */
 
 use Shaka\Options\Streams\Stream;

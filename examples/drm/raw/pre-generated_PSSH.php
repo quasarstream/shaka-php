@@ -1,10 +1,10 @@
 <?php
 
 /**
-=========================================================
-pre-generated PSSH
-=========================================================
-The example below use the H264 streams created in Media Encoding.
+ * =========================================================
+ * pre-generated PSSH
+ * =========================================================
+ * The example below use the H264 streams created in Media Encoding.
 */
 
 use Shaka\Options\Streams\DRMStream;

@@ -1,11 +1,11 @@
 <?php
 
 /**
-=========================================================
-on-demand with trick-play tracks
-=========================================================
-The example below creates two extra trick play tracks,
-besides the files genereated with the on-demand example.
+ * =========================================================
+ * on-demand with trick-play tracks
+ * =========================================================
+ * The example below creates two extra trick play tracks,
+ * besides the files genereated with the on-demand example.
 */
 
 use Shaka\Options\Streams\DASHStream;

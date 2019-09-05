@@ -1,13 +1,13 @@
 <?php
 
 /**
-=========================================================
-Single file MP4 output + ad
-=========================================================
-The example below uses the H264 streams created in Media Encoding.
-
-The example below creates five single track TS streams
-(4 video, 1 audio) and HLS playlists, which describe the streams.
+ * =========================================================
+ * Single file MP4 output + ad
+ * =========================================================
+ * The example below uses the H264 streams created in Media Encoding.
+ *
+ * The example below creates five single track TS streams
+ * (4 video, 1 audio) and HLS playlists, which describe the streams.
 */
 
 use Shaka\Options\Streams\HLSStream;
