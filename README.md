@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.org/aminyazdanpanah/shaka-php.svg?branch=master)](https://travis-ci.org/aminyazdanpanah/shaka-php)
 [![Build status](https://img.shields.io/appveyor/ci/aminyazdanpanah/shaka-php/master.svg?style=flat-square&logo=appveyor)](https://ci.appveyor.com/project/aminyazdanpanah/shaka-php)
 
-Shaka PHP is a library that uses [Shaka Packager](https://github.com/google/shaka-packager) for DASH and HLS packaging and encryption, supporting Common Encryption for Widevine and other DRM Systems.
+Shaka PHP is a library that uses **[Shaka Packager](https://github.com/google/shaka-packager)** for DASH and HLS packaging and encryption, supporting Common Encryption for Widevine and other DRM Systems.
 
 **Contents**
 - [Requirements](#requirements)
@@ -464,7 +464,7 @@ Please **[file an issue](https://github.com/aminyazdanpanah/shaka-php/issues)** 
 - If you have any questions or you want to report a bug, please just **[file an issue](https://github.com/aminyazdanpanah/shaka-php/issues)**
 - If you discover a security vulnerability within this package, please see **[SECURITY File](https://github.com/aminyazdanpanah/shaka-php/blob/master/SECURITY.md)** for more information to help with that.
 
-**NOTE:** If you have any questions about this package or FFmpeg, please **DO NOT** send an email to me or submit the contact form on my website. Emails related to these issues **will be ignored**.
+**NOTE:** If you have any questions about this package or Shaka Packager, please **DO NOT** send an email to me or submit the contact form on my website. Emails related to these issues **will be ignored**.
 
 ## Credits
 
