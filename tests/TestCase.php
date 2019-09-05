@@ -24,7 +24,7 @@ class TestCase extends BaseTestCase
 {
     protected $src_dir;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->src_dir = __DIR__ . '/files';
     }
