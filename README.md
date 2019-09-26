@@ -61,9 +61,14 @@ It is **highly recommended** to read **[Shaka Packager Documentation](https://go
  
 ### Basic Usage
 #### Initializing
-Shaka PHP detects `packager` binary, but you can explicitly give the binary path to the `initialize` method:
+Shaka PHP auto-detect `packager` binary. An associative array of config can also be passed to the `initialize` method to give binary path and timout explicitly:
 ```php
-$shaka = \Shaka\Shaka::initialize('/the/path/to/the/binary/packager');
+$config = [
+    'packager.binaries' => 'path/to/packager/binary',
+    'timeout'           =>  3600
+];
+
+$shaka = \Shaka\Shaka::initialize($config);
 ```
 
 #### Streams
@@ -82,7 +87,7 @@ $stream1->streamSelector('video')
 
 ##### Stream Options
 
-|           Option    	        |           Default             |                                                       Explanation                         	                                |
+|           Option    	        |           Default             |                                                       Description                         	                                |
 |:-----------------------------:|:-----------------------------:|:---------------------------------------------------------------------------------------------------------------------:|
 |       streamSelector()        |           NULL                |        Required field with value ‘audio’, ‘video’, ‘text’ or stream number (zero based).                              |
 |       output()                |           NULL                |         Required output file path (single file).                                                                      |
@@ -156,7 +161,7 @@ $export = $shaka->streams($stream1, $stream2, ...)
 ```
 
 #### DASH Options
-|           Option    	                           |           Default             |                                                       Explanation                         	                                |
+|           Option    	                           |           Default             |                                                       Description                         	                                |
 |:------------------------------------------------:|:-----------------------------:|:---------------------------------------------------------------------------------------------------------------------:|
 |       generateStaticMpd()                        |           FALSE               |        If enabled, generates static mpd. If segment_template is specified in stream descriptors, shaka-packager generates dynamic mpd by default; if this flag is enabled, shaka-packager generates static mpd instead. Note that if segment_template is not specified, shaka-packager always generates static mpd regardless of the value of this flag.                              |
 |       baseUrls()                                 |           NULL                |        Comma separated BaseURLs for the MPD: <url>[,<url>]…. The values will be added as <BaseURL> element(s) immediately under the <MPD> element.                                                    |
@@ -170,11 +175,11 @@ $export = $shaka->streams($stream1, $stream2, ...)
 |       defaultTextLanguage()                      |           NULL                |          	Same as above, but this applies to text tracks only, and overrides the default language for text tracks.                            	|
 |       allowApproximateSegmentTimeline()          |           NULL                |          For live profile only. If enabled, segments with close duration (i.e. with difference less than one sample) are considered to have the same duration. This enables MPD generator to generate less SegmentTimeline entries. If all segments are of the same duration except the last one, we will do further optimization to use SegmentTemplate@duration instead and omit SegmentTimeline completely. Ignored if $Time$ is used in segment template, since $Time$ requires accurate Segment Timeline.                            	|
 
-Also you can add some `Chunking` and `MP4 output` options to your DASH Object(before using these options, please read the `Explanation`):
+Also you can add some `Chunking` and `MP4 output` options to your DASH Object(before using these options, please read the `Description`):
 
 #### Chunking and MP4 Output Options
 
-|           Option    	                           |           Default             |                                                       Explanation                         	                                |
+|           Option    	                           |           Default             |                                                       Description                         	                                |
 |:------------------------------------------------:|:-----------------------------:|:---------------------------------------------------------------------------------------------------------------------:|
 |       Mp4IncludePsshInStream()                   |           TRUE                |        	MP4 only: include pssh in the encrypted stream.                              |
 |       generateSidxInMediaSegments()              |           NULL                |         For MP4 with DASH live profile only: Indicates whether to generate ‘sidx’ box in media segments. Note that it is reuqired by spec if segment template contains $Time$ specifier.                                                                      |
@@ -209,7 +214,7 @@ Please see **[examples/DASH](/examples/dash)** for details.
 #### HLS Stream Options
 Besides **[Stream Options](#stream-options)** and **[DRM Stream Options](#drm-stream-options)**, you can add options below:
 
-|           Option    	                           |           Default             |                                                       Explanation                         	                                |
+|           Option    	                           |           Default             |                                                       Description                         	                                |
 |:------------------------------------------------:|:-----------------------------:|:---------------------------------------------------------------------------------------------------------------------:|
 |       HLSName()                                  |           NULL                |        	MP4 only: include pssh in the encrypted stream.                              |
 |       HLSGroupId()                               |           NULL                |         For MP4 with DASH live profile only: Indicates whether to generate ‘sidx’ box in media segments. Note that it is reuqired by spec if segment template contains $Time$ specifier.                                                                      |
@@ -246,7 +251,7 @@ $export = $shaka->streams($stream1, $stream2, ...)
 ```
 
 #### HLS Options
-|           Option    	                           |           Default             |                                                       Explanation                         	                                |
+|           Option    	                           |           Default             |                                                       Description                         	                                |
 |:------------------------------------------------:|:-----------------------------:|:---------------------------------------------------------------------------------------------------------------------:|
 |       HLSMasterPlaylistOutput()                        |           NULL               |        Output path for the master playlist for HLS. This flag must be used to output HLS.                              |
 |       HLSBaseUrl()                                 |           NULL                |        The base URL for the Media Playlists and media files listed in the playlists. This is the prefix for the files.                                   |
@@ -257,7 +262,7 @@ $export = $shaka->streams($stream1, $stream2, ...)
 |       defaultLanguage()                          |           NULL                |          Any audio/text tracks tagged with this language will have <Role … value=”main” /> in the manifest. This allows the player to choose the correct default language for the content. This applies to both audio and text tracks. The default language for text tracks can be overriden by ‘default_text_language’.                            	|
 |       defaultTextLanguage()                      |           NULL                |          	Same as above, but this applies to text tracks only, and overrides the default language for text tracks.                            	|
 
-Also you can add some **[Chunking and MP4 output options](#chunking-and-mp4-output-options)** to your HLS Object(before using these options, please read the `Explanation`).
+Also you can add some **[Chunking and MP4 output options](#chunking-and-mp4-output-options)** to your HLS Object(before using these options, please read the `Description`).
  - **Note**: Also you can use **[Segment template formatting](#segment-template-formatting)** in your output.
 
 
@@ -285,7 +290,7 @@ UDP file is of the form:
 udp://<ip>:<port>[?<option>[&<option>]...]
 ```
 
-|           Option    	                           |                                                       Explanation                         	                                |
+|           Option    	                           |                                                       Description                         	                                |
 |:------------------------------------------------:|:---------------------------------------------------------------------------------------------------------------------:|
 |       buffer_size                                |        UDP maximum receive buffer size in bytes. Note that although it can be set to any value, the actual value is capped by maximum allowed size defined by the underlying operating system. On linux, the maximum size allowed can be retrieved using sysctl net.core.rmem_max and configured using sysctl -w net.core.rmem_max=<size_in_bytes>.           |
 |       interface                                  |        Multicast group interface address. Only the packets sent to this address are received. Default to “0.0.0.0” if not specified.      |
@@ -310,14 +315,14 @@ Regardless of which key server you are using, you can instruct Shaka Packager to
 ### DRM Stream options
 Besides **[Stream Options](#stream-options)**, you can add options below:
 
-|           Option    	                           |           Default             |                                                       Explanation                         	                                |
+|           Option    	                           |           Default             |                                                       Description                         	                                |
 |:------------------------------------------------:|:-----------------------------:|:---------------------------------------------------------------------------------------------------------------------:|
 |       skipEncryption()                           |           0                   |        	Optional. If it is set to 1, no encryption of the stream will be made.     |
 |       drmLabel()                                 |           NULL                |         Optional value for custom DRM label, which defines the encryption key applied to the stream. Typically values include AUDIO, SD, HD, UHD1, UHD2. For raw key, it should be a label defined in –keys. If not provided, the DRM label is derived from stream type (video, audio), resolutions, etc. Note that it is case sensitive.  |
 
 ### General encryption options
 
-|           Option    	                           |           Default             |                                                       Explanation                         	                           |
+|           Option    	                           |           Default             |                                                       Description                         	                           |
 |:------------------------------------------------:|:-----------------------------:|:---------------------------------------------------------------------------------------------------------------------:|
 |       protectionScheme()                         |           NULL                |       Specify a protection scheme, ‘cenc’ or ‘cbc1’ or pattern-based protection schemes ‘cens’ or ‘cbcs’.             |
 |       vp9SubsampleEncryption()                   |           TRUE                |        Enable / disable VP9 subsample encryption    |
@@ -348,7 +353,7 @@ $export = $shaka->streams($stream1, $stream2, ...)
 #### Widevine Options
 Besides **[General encryption options](#general-encryption-options)**, you can add options below:
 
-|           Option    	                           |           Default             |                                                       Explanation                         	                           |
+|           Option    	                           |           Default             |                                                       Description                         	                           |
 |:------------------------------------------------:|:-----------------------------:|:---------------------------------------------------------------------------------------------------------------------:|
 |       enableWidevineDecryption()                 |           FALSE               |         Enable decryption  with Widevine key server. User should provide either AES signing key (`aesSigningKey()`, `aesSigningIv()`) or RSA signing key (`rsaSigningKeyPath()`).    |
 |       keyServerUrl()                             |           NULL                |         Key server url. Required for Widevine encryption and decryption.    |
@@ -387,7 +392,7 @@ $export = $shaka->streams($stream1, $stream2, ...)
 #### PlayReady Options
 Besides **[General encryption options](#general-encryption-options)**, you can add options below:
 
-|           Option    	                           |           Default             |                                                       Explanation                         	                                |
+|           Option    	                           |           Default             |                                                       Description                         	                                |
 |:------------------------------------------------:|:-----------------------------:|:---------------------------------------------------------------------------------------------------------------------:|
 |       playreadyServerUrl()                       |           NULL                |         PlayReady packaging server url.    |
 |       programIdentifier()                        |           NULL                |         Program identifier for packaging request.    |
@@ -416,7 +421,7 @@ $export = $shaka->streams($stream1, $stream2, ...)
 #### Raw Options
 Besides **[General encryption options](#general-encryption-options)**, you can add options below:
 
-|           Option    	                           |           Default             |                                                       Explanation                         	                                |
+|           Option    	                           |           Default             |                                                       Description                         	                                |
 |:------------------------------------------------:|:-----------------------------:|:---------------------------------------------------------------------------------------------------------------------:|
 |       enableRawKeyDecryption()                   |           FALSE               |         Enable decryption with raw key (keys provided in command line).    |
 |       keys()                                     |           NULL                |         key_info_string is of the form: label=<label>:key_id=<key_id>:key=<key>label can be an arbitrary string or a predefined DRM label like AUDIO, SD, HD, etc. Label with an empty string indicates the default key and key_id.     |
@@ -464,7 +469,7 @@ Please **[file an issue](https://github.com/aminyazdanpanah/shaka-php/issues)** 
 - If you have any questions or you want to report a bug, please just **[file an issue](https://github.com/aminyazdanpanah/shaka-php/issues)**
 - If you discover a security vulnerability within this package, please see **[SECURITY File](https://github.com/aminyazdanpanah/shaka-php/blob/master/SECURITY.md)** for more information to help with that.
 
-**NOTE:** If you have any questions about this package or Shaka Packager, please **DO NOT** send an email to me or submit the contact form on my website. Emails related to these issues **will be ignored**.
+**NOTE:** If you have any questions about this package or Shaka Packager, please **DO NOT** send an email to me(or submit the contact form on my website). Emails relate to these issues **will be ignored**.
 
 ## Credits
 

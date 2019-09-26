@@ -21,15 +21,21 @@ class Process
 {
 
     protected $commands = [];
+    /**
+     * @var float
+     */
+    private $timout;
 
     /**
      * ShakaProcess constructor.
-     * @param $binary
+     * @param string $binary
+     * @param float $timout
      * @throws ProcessException
      */
-    public function __construct($binary)
+    public function __construct(string $binary, float $timout)
     {
         $this->commands[] = $this->getBinary($binary);
+        $this->timout = $timout;
     }
 
     /**
@@ -63,7 +69,7 @@ class Process
             throw new ProcessException('The binary is not executable');
         }
 
-        $process = new SymphonyProcess($commands);
+        $process = new SymphonyProcess($commands, null, null, null, $this->timout);
         $process->run();
 
         if (!$process->isSuccessful()) {

@@ -17,12 +17,14 @@ class ShakaProcess extends Process
 {
     /**
      * ShakaProcess constructor.
-     * @param $binary
+     * @param array $config
      * @throws \Shaka\Exception\ProcessException
      */
-    public function __construct($binary)
+    public function __construct(array $config)
     {
-        $binary = ($binary) ? $binary : "packager";
-        parent::__construct($binary);
+        $binary = isset($config['packager.binaries']) ? $config['packager.binaries'] : "packager";
+        $timeout = isset($config['timeout']) ? $config['timeout'] : 60;
+
+        parent::__construct($binary, $timeout);
     }
 }

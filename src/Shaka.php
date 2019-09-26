@@ -72,13 +72,13 @@ class Shaka
     }
 
     /**
-     * @param string $binary
+     * @param array $config
      * @return Shaka
      * @throws Exception\ProcessException
      */
-    public static function initialize(string $binary = null)
+    public static function initialize(array $config = [])
     {
-        $process = new ShakaProcess($binary);
+        $process = new ShakaProcess($config);
         return new static($process);
     }
 
