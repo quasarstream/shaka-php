@@ -47,7 +47,7 @@ $export = \Shaka\Shaka::initialize()
     ->streams($stream1, $stream2, $stream3, $stream4, $stream5, $stream6)
     ->mediaPackaging()
     ->DASH($output_path . 'h264.mpd', function ($options) {
-        return $options->generateStaticMpd()
+        return $options->generateStaticLiveMpd()
             ->adCues('600;1800;3000');
     })
     ->export();

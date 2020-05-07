@@ -43,11 +43,11 @@ $stream6 = DASHStream::input($h264_high_1080p)
     ->initSegment($output_path . 'h264_1080p/init.mp4')
     ->segmentTemplate($output_path . 'h264_1080p/$Number$.m4s');
 
-$export = \Shaka\Shaka::initialize()
+$export = Shaka\Shaka::initialize()
     ->streams($stream1, $stream2, $stream3, $stream4, $stream5, $stream6)
     ->mediaPackaging()
     ->DASH($output_path . 'h264.mpd', function ($options) {
-        return $options->generateStaticMpd();
+        return $options->generateStaticLiveMpd();
     })
     ->export();
 

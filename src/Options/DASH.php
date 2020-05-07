@@ -16,7 +16,7 @@ namespace Shaka\Options;
 class DASH extends General
 {
     /** @var bool */
-    private $generate_static_mpd;
+    private $generate_static_live_mpd;
 
     /** @var string */
     private $mpd_output;
@@ -42,22 +42,22 @@ class DASH extends General
     /**
      * @return array
      */
-    protected function __getGenerateStaticMpd()
+    protected function __getGenerateStaticLiveMpd()
     {
-        if (!$this->generate_static_mpd) {
+        if (!$this->generate_static_live_mpd) {
             return null;
         }
 
-        return [MediaOptions::GENERATE_STATIC_MPD];
+        return [MediaOptions::GENERATE_STATIC_LIVE_MPD];
     }
 
     /**
-     * @param bool $generate_static_mpd
+     * @param bool $generate_static_live_mpd
      * @return DASH
      */
-    public function generateStaticMpd(bool $generate_static_mpd = true): DASH
+    public function generateStaticLiveMpd(bool $generate_static_live_mpd = true): DASH
     {
-        $this->generate_static_mpd = $generate_static_mpd;
+        $this->generate_static_live_mpd = $generate_static_live_mpd;
         return $this;
     }
 

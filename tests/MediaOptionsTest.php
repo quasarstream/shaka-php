@@ -24,7 +24,7 @@ class MediaOptionsTest extends TestCase
     public function testDASHOptions()
     {
         $output = (new DASH())->mpdOutput('whatever')
-            ->generateStaticMpd()
+            ->generateStaticLiveMpd()
             ->baseUrls('whatever')
             ->minBufferTime('whatever')
             ->minimumUpdatePeriod('whatever')

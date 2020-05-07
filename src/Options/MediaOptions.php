@@ -30,7 +30,7 @@ class MediaOptions
 
 
     //DASH Options
-    const GENERATE_STATIC_MPD = '--generate_static_mpd';
+    const GENERATE_STATIC_LIVE_MPD = '--generate_static_live_mpd';
 
     const MPD_OUTPUT = '--mpd_output';
 

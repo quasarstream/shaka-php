@@ -44,7 +44,7 @@ class DASHTest extends TestCase
             ->streams($audio, $text, $video)
             ->mediaPackaging()
             ->DASH($this->src_dir . '/dash_static_live/h264.mpd', function ($options) {
-                return $options->generateStaticMpd();
+                return $options->generateStaticLiveMpd();
             })
             ->export();
 

@@ -1,5 +1,5 @@
 [
-  "--generate_static_mpd",
+  "--generate_static_live_mpd",
   "--base_urls",
   "whatever",
   "--min_buffer_time",
