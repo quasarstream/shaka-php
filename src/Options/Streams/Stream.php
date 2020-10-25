@@ -77,7 +77,7 @@ class Stream extends BuildStream
      */
     protected function __getStreamSelector()
     {
-        if (!$this->stream_selector) {
+        if (!isset($this->stream_selector)) {
             return null;
         }
 
