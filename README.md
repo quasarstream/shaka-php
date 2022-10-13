@@ -30,9 +30,9 @@ You can also give the binary path on load.
 
 ### Getting Shaka Packager
 There are several ways you can get Shaka Packager.
-- Using **[Docker](https://www.docker.com/whatisdocker)**. Instructions are available at **[Using Docker](https://google.github.io/shaka-packager/html/docker_instructions.html)**.
+- Using **[Docker](https://www.docker.com/whatisdocker)**. Instructions are available at **[Using Docker](https://github.com/shaka-project/shaka-packager/blob/main/docs/source/docker_instructions.md)**.
 - Get prebuilt binaries from **[release](https://github.com/google/shaka-packager/releases)**.
-- Built from source, see **[Build Instructions](https://google.github.io/shaka-packager/html/build_instructions.html)** for details.
+- Built from source, see **[Build Instructions](https://github.com/shaka-project/shaka-packager/blob/main/docs/source/build_instructions.md)** for details.
 
 For users who get prebuilt binary: Please rename `packager-'OS'` to `packager` and add the path of shaka packager to your system PATH.(e.g. 'packager-win.exe' to 'packager.exe')
 
