@@ -30,9 +30,9 @@ You can also give the binary path on load.
 
 ### Getting Shaka Packager
 There are several ways you can get Shaka Packager.
-- Using **[Docker](https://www.docker.com/whatisdocker)**. Instructions are available at **[Using Docker](https://github.com/shaka-project/shaka-packager/blob/main/docs/source/docker_instructions.md)**.
+- Using **[Docker](https://www.docker.com/whatisdocker)**. Instructions are available at **[Using Docker](https://shaka-project.github.io/shaka-packager/html/docker_instructions.html)**.
 - Get prebuilt binaries from **[release](https://github.com/google/shaka-packager/releases)**.
-- Built from source, see **[Build Instructions](https://github.com/shaka-project/shaka-packager/blob/main/docs/source/build_instructions.md)** for details.
+- Built from source, see **[Build Instructions](https://shaka-project.github.io/shaka-packager/html/build_instructions.html)** for details.
 
 For users who get prebuilt binary: Please rename `packager-'OS'` to `packager` and add the path of shaka packager to your system PATH.(e.g. 'packager-win.exe' to 'packager.exe')
 
@@ -57,7 +57,7 @@ Alternatively, add the dependency directly to your `composer.json` file:
 ## Usage
 The best way to learn how to use this library is to review the **[examples](/examples)** and browse the source code as it is self-documented.
 
-It is **highly recommended** to read **[Shaka Packager Documentation](https://google.github.io/shaka-packager/html/index.html)**.
+It is **highly recommended** to read **[Shaka Packager Documentation](https://shaka-project.github.io/shaka-packager/html/index.html)**.
  
 ### Basic Usage
 #### Initializing
@@ -281,7 +281,7 @@ Please see **[examples/HLS](/examples/hls)** for details.
 ## Live
 A typical live source is UDP multicast, which is the only live protocol packager supports directly right now.
 
-For other unsupported protocols, you can use FFmpeg to pipe the input. See **[FFmpeg piping](https://google.github.io/shaka-packager/html/tutorials/ffmpeg_piping.html)** for details.
+For other unsupported protocols, you can use FFmpeg to pipe the input. See **[FFmpeg piping](https://shaka-project.github.io/shaka-packager/html/tutorials/ffmpeg_piping.html)** for details.
 
 
 ### UDP File Options
@@ -376,7 +376,7 @@ Please see **[examples/DRM/Widevine](/examples/drm/widevine)** for details.
 ### PlayReady Key Server
 This library can talk to PlayReady Key Server that implements **[AcquirePackagingData Web Method specification](http://bit.ly/2M9NuOt)** to fetch encryption keys.
 
-Refer to **[DRM](https://google.github.io/shaka-packager/html/tutorials/drm.html)** if you are interested in generating multi-DRM contents.
+Refer to **[DRM](https://shaka-project.github.io/shaka-packager/html/tutorials/drm.html)** if you are interested in generating multi-DRM contents.
 ``` php
 $export = $shaka->streams($stream1, $stream2, ...)
     ->mediaPackaging()
