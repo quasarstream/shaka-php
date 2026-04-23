@@ -26,7 +26,7 @@ class Media extends ExportMedia implements MediaInterface
      * @return Media
      * @throws MediaException
      */
-    public function DRM(string $encryption, callable $options = null)
+    public function DRM(string $encryption, ?callable $options = null)
     {
         $class_name = '\Shaka\Options\DRM\\' . ucwords($encryption);
 
@@ -47,7 +47,7 @@ class Media extends ExportMedia implements MediaInterface
      * @return $this
      * @throws MediaException
      */
-    public function HLS(string $output, callable $options = null)
+    public function HLS(string $output, ?callable $options = null)
     {
         $hls = new HLS();
         $hls = $hls->HLSMasterPlaylistOutput($output);
@@ -62,7 +62,7 @@ class Media extends ExportMedia implements MediaInterface
      * @return $this
      * @throws MediaException
      */
-    public function DASH(string $output, callable $options = null)
+    public function DASH(string $output, ?callable $options = null)
     {
         $dash = new DASH();
         $dash = $dash->mpdOutput($output);

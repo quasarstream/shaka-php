@@ -22,19 +22,19 @@ interface MediaInterface
      * @param callable|null $options
      * @return $this
      */
-    public function DASH(string $output, callable $options = null);
+    public function DASH(string $output, ?callable $options = null);
 
     /**
      * @param string $output
      * @param callable|null $options
      * @return $this
      */
-    public function HLS(string $output, callable $options = null);
+    public function HLS(string $output, ?callable $options = null);
 
     /**
      * @param string $encryption
      * @param callable|null $options
      * @return Media
      */
-    public function DRM(string $encryption, callable $options = null);
+    public function DRM(string $encryption, ?callable $options = null);
 }
