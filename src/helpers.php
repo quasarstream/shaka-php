@@ -17,7 +17,7 @@ if (!function_exists('shaka')) {
      * @return mixed
      * @throws \Shaka\Exception\ProcessException
      */
-    function shaka(string $binary = null)
+    function shaka(?string $binary = null)
     {
         return \Shaka\Shaka::initialize($binary);
     }
